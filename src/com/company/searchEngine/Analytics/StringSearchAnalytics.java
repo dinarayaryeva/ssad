@@ -1,8 +1,12 @@
 package com.company.searchEngine.Analytics;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
+import com.company.httpMessages.SearchResponse.SearchResponse;
 
 public class StringSearchAnalytics extends Analytics {
+
     @Override
-    public void gatherAnalytics(SearchRequest request) {}
+    public void gatherAnalytics(SearchRequest request, SearchRequest validatedRequest, SearchResponse response) {
+
+    }
 }
