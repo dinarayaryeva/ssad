@@ -1,6 +1,6 @@
 package com.company.seoSuggester;
 
-import com.company.searchEngine.Models.DocumentIndex;
+import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.seoSuggester.SEOAspects.SEOConfigProxy;
 import com.company.utils.htmlParser.Document;
 import com.company.utils.htmlParser.Elements;

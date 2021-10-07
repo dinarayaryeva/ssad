@@ -1,4 +1,4 @@
-package com.company.searchEngine.Models;
+package com.company.searchEngine.Models.Index;
 
 public class InvertedIndex extends IndexModel {
 }

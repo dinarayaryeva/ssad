@@ -8,6 +8,7 @@ import com.company.utils.htmlParser.Tag;
 
 import java.util.ArrayList;
 
+//Interface and proxy implementation fix needed
 public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsContainer {
 
     public static SEOConfigProxy seoConfigProxy;

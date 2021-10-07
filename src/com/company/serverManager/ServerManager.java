@@ -1,6 +1,6 @@
 package com.company.serverManager;
 
-import com.company.searchEngine.Models.DocumentIndex;
+import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.utils.PlainDocument;
 

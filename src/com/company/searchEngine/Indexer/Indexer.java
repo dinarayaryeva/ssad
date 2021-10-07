@@ -1,6 +1,6 @@
 package com.company.searchEngine.Indexer;
 
-import com.company.searchEngine.Models.DocumentIndex;
+import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.seoSuggester.SEORanker;
 import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Document;

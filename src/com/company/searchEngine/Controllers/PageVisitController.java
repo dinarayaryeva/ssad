@@ -4,7 +4,7 @@ import com.company.httpMessages.SearchRequest.ExtendedPageVisitRequest;
 import com.company.httpMessages.SearchRequest.PageVisitRequest;
 import com.company.httpMessages.SearchResponse.ExtendedPageVisitResponse;
 import com.company.searchEngine.Analytics.PageVisitAnalytics;
-import com.company.searchEngine.Models.DocumentIndex;
+import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.PageFetcher;
 import com.company.seoSuggester.KeywordsSuggester;
 import com.company.seoSuggester.SEOAspects.SEOAspect;

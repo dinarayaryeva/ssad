@@ -1,6 +1,6 @@
 package com.company.seoSuggester;
 
-import com.company.searchEngine.Models.DocumentIndex;
+import com.company.searchEngine.Models.Index.DocumentIndex;
 
 import java.util.ArrayList;
 
