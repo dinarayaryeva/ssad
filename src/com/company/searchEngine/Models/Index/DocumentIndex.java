@@ -1,6 +1,7 @@
 package com.company.searchEngine.Models.Index;
 
 import com.company.searchEngine.Models.Hit.Hit;
+import com.company.utils.PlainDocument;
 import com.company.utils.htmlParser.Document;
 
 public class DocumentIndex extends ForwardIndex {
@@ -22,7 +23,7 @@ public class DocumentIndex extends ForwardIndex {
         return null;
     }
 
-    public DocumentIndex(Document doc) {}
+    public DocumentIndex(PlainDocument doc) {}
 
     public int getSeoRank() {
         return seoRank;
