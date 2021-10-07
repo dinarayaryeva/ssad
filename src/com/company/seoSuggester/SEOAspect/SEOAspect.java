@@ -9,15 +9,25 @@ import com.company.utils.htmlParser.Tag;
 
 import java.util.ArrayList;
 
-public class SEOAspect implements SEOImpactCalculatable, Compound {
+public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsContainer {
 
     public static SEOConfigProxy seoConfigProxy;
     public static String name;
     public static ArrayList<Tag> tags;
-    public ArrayList<SEOAspect> childAspects;
-    public ArrayList<SEOProblem> seoProblems;
+    private ArrayList<SEOAspect> childAspects;
+    private ArrayList<SEOProblem> seoProblems;
 
-    public int calculateSEOImpact(Elements elements, SEOAspect configAspect) {
+    @Override
+    public ArrayList<SEOAspect> getChildAspects() {
+        return childAspects;
+    }
+
+    @Override
+    public ArrayList<SEOProblem> getChildProblems() {
+        return seoProblems;
+    }
+
+    public int calculateSEOImpact(Elements elements, SEOAspectsContainer configAspect) {
 
         int currentAspectImpact = 0;
 
