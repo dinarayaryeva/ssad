@@ -12,7 +12,8 @@ public class Indexer {
 
     public DocumentIndex makeDocumentIndex(Document doc) {
         DocumentIndex index = new DocumentIndex(doc);
-        seoRanker.calculateDocumentRank(index);
+        int seoRank = seoRanker.calculateDocumentRank(index);
+        index.setSeoRank(seoRank);
         dataServerConnection.storeIndex(index);
         return index;
     }

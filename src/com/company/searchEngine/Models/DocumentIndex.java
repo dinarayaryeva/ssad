@@ -5,7 +5,21 @@ import com.company.utils.htmlParser.Document;
 
 public class DocumentIndex extends ForwardIndex {
     private int plainDocId;
+    private int docId;
+    private int docStatus;
+    private String hash;
+    private int visits;
+    private int seoRank;
     public DocumentIndex(Document doc) {}
+
+
+    public int getSeoRank() {
+        return seoRank;
+    }
+
+    public void setSeoRank(int seoRank) {
+        this.seoRank = seoRank;
+    }
 
     public String getPlainDoc() {
         return dataServerConnection.getPlainDocument(plainDocId);
