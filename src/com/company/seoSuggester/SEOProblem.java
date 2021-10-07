@@ -1,19 +1,22 @@
 package com.company.seoSuggester;
 
 import com.company.seoSuggester.SEOAspect.SEOAspect;
-import org.w3c.dom.html.HTMLElement;
-
-import javax.swing.text.html.HTML;
+import com.company.seoSuggester.SEOImpactCalculatable;
+import com.company.seoSuggester.SEOSuggestion;
+import com.company.utils.htmlParser.Element;
+import com.company.utils.htmlParser.Elements;
+import com.company.utils.htmlParser.Tag;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class SEOProblem implements SEOImpactCalculatable {
+public abstract class SEOProblem implements SEOImpactCalculatable {
     public static String name;
     public static String description;
     public ArrayList<SEOSuggestion> suggestions;
-    public static ArrayList<HTML.Tag> tags;
-    @Override
-    public int calculateSEOImpact(HTMLElement[] elements, SEOAspect configAspect) {
+    public static ArrayList<Tag> tags;
+
+
+    public int calculateSEOImpact(Elements elements, SEOAspect configAspect) {
         return 0;
-    }
+    };
 }
