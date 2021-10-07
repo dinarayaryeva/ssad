@@ -59,4 +59,8 @@ public class ServerManager {
 
     public void createWordIndex(WordIndex index) {
     }
+
+    public ArrayList<DocumentIndex> fetchMatchingIndexes(String query) {
+        return new ArrayList<DocumentIndex>();
+    }
 }
