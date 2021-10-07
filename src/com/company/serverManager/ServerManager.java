@@ -1,6 +1,7 @@
 package com.company.serverManager;
 
 import com.company.searchEngine.Models.Index.DocumentIndex;
+import com.company.searchEngine.Models.Index.WordIndex;
 import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.utils.PlainDocument;
 
@@ -46,5 +47,16 @@ public class ServerManager {
 
     // Working with documents and indexes
     public void storePlainDocument(PlainDocument doc) {
+    }
+
+    public ArrayList<DocumentIndex> getDocumentIndexes() {
+        return new ArrayList<DocumentIndex>();
+    }
+    
+
+    public void updateWordIndex(WordIndex wordIndex) {
+    }
+
+    public void createWordIndex(WordIndex index) {
     }
 }
