@@ -10,12 +10,18 @@ public class DocumentIndex extends ForwardIndex {
     private String hash;
     private int visits;
     private int seoRank;
-    public DocumentIndex(Document doc) {}
 
+    public static DocumentIndex getIndexById(int docId) {
+        return null;
+    }
+
+    public DocumentIndex(Document doc) {}
 
     public int getSeoRank() {
         return seoRank;
     }
+
+    public void increaseVisitsCount() {visits++; }
 
     public void setSeoRank(int seoRank) {
         this.seoRank = seoRank;

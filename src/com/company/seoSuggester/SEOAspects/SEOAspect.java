@@ -1,9 +1,8 @@
-package com.company.seoSuggester.SEOAspect;
+package com.company.seoSuggester.SEOAspects;
 
 import com.company.seoSuggester.Compound.Compound;
-import com.company.seoSuggester.Compound.InvalidComponentClassException;
 import com.company.seoSuggester.SEOImpactCalculatable;
-import com.company.seoSuggester.SEOProblem;
+import com.company.seoSuggester.SEOProblems.SEOProblem;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.Tag;
 
@@ -17,12 +16,12 @@ public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsCon
     private ArrayList<SEOAspect> childAspects;
     private ArrayList<SEOProblem> seoProblems;
 
-    @Override
+
     public ArrayList<SEOAspect> getChildAspects() {
         return childAspects;
     }
 
-    @Override
+
     public ArrayList<SEOProblem> getChildProblems() {
         return seoProblems;
     }
@@ -45,6 +44,11 @@ public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsCon
 
         return currentAspectImpact + childAspectsImpact;
 
+    }
+
+    public SEOAspect getSEOSuggestions() {
+        //Recursively iterate over child aspects and problems, in result aspect add only aspects with existing problems
+        return new SEOAspect();
     }
 
     @Override

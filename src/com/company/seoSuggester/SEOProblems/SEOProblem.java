@@ -1,13 +1,11 @@
-package com.company.seoSuggester;
+package com.company.seoSuggester.SEOProblems;
 
-import com.company.seoSuggester.SEOAspect.SEOAspect;
+import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOImpactCalculatable;
-import com.company.seoSuggester.SEOSuggestion;
-import com.company.utils.htmlParser.Element;
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.Tag;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public abstract class SEOProblem implements SEOImpactCalculatable {
     public static String name;

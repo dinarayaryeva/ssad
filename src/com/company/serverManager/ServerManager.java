@@ -1,8 +1,11 @@
 package com.company.serverManager;
 
 import com.company.searchEngine.Models.DocumentIndex;
-import com.company.seoSuggester.SEOAspect.SEOAspect;
-import com.company.utils.htmlParser.Document;
+import com.company.seoSuggester.SEOAspects.SEOAspect;
+import com.company.utils.PlainDocument;
+
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class ServerManager {
 
@@ -29,5 +32,19 @@ public class ServerManager {
 
     public String getPlainDocument(int plainDocId) {
         return "";
+    }
+
+    // Working with url server
+
+    public void storeUrlsOnUrlServer(InputStream is) {}
+
+    public void storeUrlOnUrlServer(String url) {}
+
+    public ArrayList<String> fetchUrlsList() {
+        return new ArrayList<String>();
+    }
+
+    // Working with documents and indexes
+    public void storePlainDocument(PlainDocument doc) {
     }
 }

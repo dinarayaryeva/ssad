@@ -1,4 +1,4 @@
-package com.company.seoSuggester.SEOAspect;
+package com.company.seoSuggester.SEOAspects;
 
 public class OnPageSEOAspect extends SEOAspect {
 }

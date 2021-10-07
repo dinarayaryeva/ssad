@@ -1,6 +1,6 @@
-package com.company.seoSuggester.SEOAspect;
+package com.company.seoSuggester.SEOAspects;
 
-import com.company.seoSuggester.SEOProblem;
+import com.company.seoSuggester.SEOProblems.SEOProblem;
 
 import java.util.ArrayList;
 

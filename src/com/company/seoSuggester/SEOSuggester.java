@@ -1,19 +1,22 @@
 package com.company.seoSuggester;
 
 import com.company.searchEngine.Models.DocumentIndex;
+import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOAspects.SEOConfigProxy;
+import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Document;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.HTMLParser;
 
-public class SEORanker {
+public class SEOSuggester {
+    ServerManager dataServerConnection;
+    SEOConfigProxy seoConfigProxy;
+    public SEOAspect getSEOSuggestions(DocumentIndex index) {
 
-    public SEOConfigProxy seoConfigProxy;
-
-    public int calculateDocumentRank(DocumentIndex index) {
         Document doc = HTMLParser.parse(index.getPlainDoc());
         Elements elements = doc.selectAll();
-        int problemsImpact = seoConfigProxy.calculateSEOImpact(elements, null);
-        return seoConfigProxy.getFullSEOScore() - problemsImpact;
+
+        return seoConfigProxy.getSuggestions(elements);
+
     }
 }

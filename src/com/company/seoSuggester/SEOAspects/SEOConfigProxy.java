@@ -1,13 +1,13 @@
-package com.company.seoSuggester.SEOAspect;
+package com.company.seoSuggester.SEOAspects;
 
 import com.company.seoSuggester.SEOImpactCalculatable;
-import com.company.seoSuggester.SEOProblem;
+import com.company.seoSuggester.SEOProblems.SEOProblem;
 import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Elements;
 
 import java.util.ArrayList;
 
-public class SEOConfigProxy implements SEOImpactCalculatable, SEOAspectsContainer {
+public class SEOConfigProxy implements SEOImpactCalculatable {
     private SEOAspect config;
     private ServerManager dataServerConnection;
     private int fullSEOScore;
@@ -35,13 +35,15 @@ public class SEOConfigProxy implements SEOImpactCalculatable, SEOAspectsContaine
         return config.calculateSEOImpact(elements, config);
     }
 
-    @Override
-    public ArrayList<SEOAspect> getChildAspects() {
-        config.getChildAspects();
+    public SEOAspect getSuggestions(Elements elements) {
+        return config.getSEOSuggestions();
     }
 
-    @Override
+    public ArrayList<SEOAspect> getChildAspects() {
+        return config.getChildAspects();
+    }
+
     public ArrayList<SEOProblem> getChildProblems() {
-        config.getChildProblems();
+        return config.getChildProblems();
     }
 }

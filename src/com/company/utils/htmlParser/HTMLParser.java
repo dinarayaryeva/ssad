@@ -9,7 +9,5 @@ public class HTMLParser {
     public static Document parse(String is) {
         return new Document();
     }
-    public static Elements selectAll() {
-        return new Elements();
-    }
+
 }
