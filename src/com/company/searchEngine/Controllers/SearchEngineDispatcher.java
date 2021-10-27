@@ -20,8 +20,8 @@ public class SearchEngineDispatcher {
      * Web-server works in multithreading
      * environment and according to the assignment
      * Q&A document we are allowed to simplify that part,
-     * so allocation and management
-     * of search instances engines is omitted.
+     * so management
+     * of search engine instances engines is omitted.
      * In complete implementation creation of search engine
      * worker can be combined with processing
      * it's first request according to resource
@@ -50,7 +50,17 @@ public class SearchEngineDispatcher {
         return new ImageSearchEngine();
     }
 
-    public SearchResponse handleSearchRequest(SearchRequest request) {
+    public StringSearchEngine createStringSearchEngine(StringSearchRequest r) {
+        return new StringSearchEngine(r);
+    }
+    public VoiceSearchEngine createVoiceSearchEngine(VoiceSearchRequest r) {
+        return new VoiceSearchEngine(r);
+    }
+    public ImageSearchEngine createImagineSearchEngine(ImageSearchRequest r) {
+        return new ImageSearchEngine(r);
+    }
+
+    public SearchResponse dispatchSearchRequest(SearchRequest request) {
         SearchResponse response = null;
         if (request instanceof ImageSearchRequest) {
             response = imageSearchEngines.get(0).processSearchRequest(request);

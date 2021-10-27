@@ -1,6 +1,7 @@
 package com.company.searchEngine;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
+import com.company.httpMessages.SearchRequest.StringSearchRequest;
 import com.company.httpMessages.SearchResponse.ImageSearchResponse;
 import com.company.httpMessages.SearchResponse.SearchResponse;
 import com.company.httpMessages.SearchResponse.StringSearchResponse;
@@ -18,8 +19,9 @@ public class StringSearchEngine extends SearchEngine {
         validator = new ImageSearchValidator();
     }
 
-    @Override
-    public SearchResponse processSearchRequest(SearchRequest request) {
-        return new StringSearchResponse();
+    public StringSearchEngine(StringSearchRequest request) {
+        this();
+        super.processSearchRequest(request);
     }
+
 }

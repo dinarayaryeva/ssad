@@ -22,7 +22,7 @@ public class Client {
     }
 
     public SearchResponse performSearch(SearchRequest request) {
-        return searchEngineDispatcher.handleSearchRequest(request);
+        return searchEngineDispatcher.dispatchSearchRequest(request);
     }
 
     //Client goes to the original website
