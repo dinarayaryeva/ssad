@@ -10,9 +10,10 @@ public abstract class Searcher {
      * Invoked when a client submits a query. Example of logic for query
      * consists of simple word: the string
      * searcher searches for the word id in the lexicon and then using
-     * the word id searches for the list of document indexes using word
-     * reverse index. URLs in the reverse
-     * index stored in store server.
+     * the word id searches for the list of pages using word
+     * reverse index. Real implementations for more complex queries
+     * contain more steps such as natural language processing,
+     * cache checking, relevance checking and etc.
      */
     LexiconManager lexiconManager;
     ServerManager dataServerConnection;

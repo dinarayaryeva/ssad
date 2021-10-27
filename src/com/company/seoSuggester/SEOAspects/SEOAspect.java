@@ -1,17 +1,16 @@
 package com.company.seoSuggester.SEOAspects;
 
-import com.company.seoSuggester.Compound.Compound;
-import com.company.seoSuggester.SEOImpactCalculatable;
+import com.company.seoSuggester.Component;
 import com.company.seoSuggester.SEOProblems.SEOProblem;
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.Tag;
 
 import java.util.ArrayList;
 
-//Interface and proxy implementation fix needed
-public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsContainer {
+public class SEOAspect extends Component {
 
-    public static SEOConfigProxy seoConfigProxy;
+    public Integer fullSEOScore;
     public static String name;
     public static ArrayList<Tag> tags;
     private ArrayList<SEOAspect> childAspects;
@@ -27,48 +26,19 @@ public class SEOAspect implements SEOImpactCalculatable, Compound, SEOAspectsCon
         return seoProblems;
     }
 
-    public int calculateSEOImpact(Elements elements, SEOAspectsContainer configAspect) {
+    @Override
+    public ArrayList<SEOSuggestion> getSuggestions(Elements eles) {
+        return null;
+    }
+
+    public static Integer calculateSEOImpact(Elements elements) {
         return 0;
     }
-//    public int calculateSEOImpact(Elements elements, SEOAspectsContainer configAspect) {
-//
-//        int currentAspectImpact = 0;
-//
-//        if (seoProblems != null) {
-//            currentAspectImpact = configAspect.seoProblems.stream().mapToInt((p) ->
-//                    p.calculateSEOImpact(elements.filter(p.tags), configAspect)).sum();
-//        }
-//
-//        if (configAspect.childAspects == null || configAspect.childAspects.isEmpty()) {
-//            return currentAspectImpact;
-//        }
-//
-//        int childAspectsImpact = configAspect.childAspects.stream().mapToInt((a) ->
-//                a.calculateSEOImpact(elements.filter(a.tags), a)).sum();
-//
-//        return currentAspectImpact + childAspectsImpact;
-//
-//    }
 
-    public SEOAspect getSEOSuggestions() {
-        //Recursively iterate over child aspects and problems, in result aspect add only aspects with existing problems
-        return new SEOAspect();
-    }
 
-    @Override
-    public <C> void addComponent(C component) {
-        if (component instanceof SEOAspect) {
-            childAspects.add((SEOAspect) component);
-        }
-        else if (component instanceof SEOProblem) {
-            seoProblems.add((SEOProblem) component);
-        }
-        //            throw new InvalidComponentClassException("Invalid component class");
-    }
-
-    @Override
-    public void deleteComponent(String name) {
+    public void addComponent(Component c) {
 
     }
+
 }
 

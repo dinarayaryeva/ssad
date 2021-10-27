@@ -10,7 +10,7 @@ import com.company.serverManager.ServerManager;
 
 import java.util.ArrayList;
 
-public class Sorter {
+public abstract class Sorter {
     /**
      * Runs continuously. Obtains forward
      * indices from store server, prepares reverse indices -
@@ -21,5 +21,6 @@ public class Sorter {
     ServerManager dataServerConnection;
     LexiconManager lexiconManager;
 
-
+    public abstract void makeInverterIndex();
+    public abstract void updateInverterIndex();
 }

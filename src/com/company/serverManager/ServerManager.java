@@ -36,6 +36,12 @@ public class ServerManager {
         return "";
     }
 
+    public ArrayList<DocumentIndex> fetchMatchingIndexes(String query) {
+        return new ArrayList<DocumentIndex>();
+    }
+
+    public void storeUrlsOnUrlServer(String url) {
+    }
     // Working with url server
 
     public void storeUrlsOnUrlServer(InputStream is) {}
@@ -61,14 +67,14 @@ public class ServerManager {
     public void createWordIndex(WordIndex index) {
     }
 
-    public ArrayList<DocumentIndex> fetchMatchingIndexes(String query) {
-        return new ArrayList<DocumentIndex>();
-    }
 
+    // Working with lexicon
     public Lexicon getLexicon() {
         return new Lexicon();
     }
 
     public void updateLexicon() {
     }
+
+
 }

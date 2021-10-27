@@ -1,11 +1,19 @@
 package com.company.seoSuggester.SEOProblems;
 
-import com.company.seoSuggester.SEOAspects.SEOAspectsContainer;
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements;
 
+import java.util.ArrayList;
+
 public class TitleLengthProblem extends SEOProblem {
+
+
     @Override
-    public int calculateSEOImpact(Elements elements, SEOAspectsContainer configAspect) {
+    public ArrayList<SEOSuggestion> getSuggestions(Elements eles) {
+        return null;
+    }
+
+    public static Integer calculateSEOImpact(Elements elements) {
         return 0;
     }
 }

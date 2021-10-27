@@ -1,6 +1,6 @@
 package com.company.seoSuggester.SEOAspects.MetaTagsUsage;
 
-import com.company.seoSuggester.SEOAspects.OnPageSEOAspect;
+import com.company.seoSuggester.SEOAspects.SEOAspect;
 
-public class TitleUsage extends OnPageSEOAspect {
+public class TitleUsage extends SEOAspect {
 }

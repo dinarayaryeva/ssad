@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Crawler {
+    /**
+     * Running continuously, requests the URL server
+     * to provide URL to be crawled and then depending
+     * on access permissions requests webpages and loads
+     * them to store server
+     */
     ServerManager serversConnection;
 
     PlainDocument downloadDoc(String url) {
