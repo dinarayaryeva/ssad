@@ -1,6 +1,5 @@
 package com.company.searchEngine.Models.Index;
 
-import com.company.searchEngine.Models.Hit.Hit;
 import com.company.utils.PlainDocument;
 import com.company.utils.htmlParser.Document;
 
@@ -12,9 +11,6 @@ public class DocumentIndex extends ForwardIndex {
     private int visits;
     private int seoRank;
 
-    public Hit[] getHitList(int wordId){
-        return new Hit[100];
-    }
 
     public int getDocId() {
         return docId;
