@@ -6,18 +6,23 @@ import com.company.httpMessages.SearchRequest.SearchRequest;
 import com.company.httpMessages.SearchResponse.ExtendedPageVisitResponse;
 import com.company.httpMessages.SearchResponse.SearchResponse;
 import com.company.searchEngine.Controllers.PageVisitController;
-import com.company.searchEngine.Controllers.SearchRequestController;
+import com.company.searchEngine.Controllers.SearchEngineDispatcher;
 
 public class Client {
-    SearchRequestController searchRequestController;
+    /**
+     * Emulates actions of the user (browser)
+     */
+
+
+    SearchEngineDispatcher searchEngineDispatcher;
     PageVisitController pageVisitController;
 
     public Client() {
-        searchRequestController = new SearchRequestController();
+        searchEngineDispatcher = new SearchEngineDispatcher();
     }
 
     public SearchResponse performSearch(SearchRequest request) {
-        return searchRequestController.handleSearchRequest(request);
+        return searchEngineDispatcher.handleSearchRequest(request);
     }
 
     //Client goes to the original website

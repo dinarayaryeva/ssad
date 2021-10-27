@@ -1,5 +1,6 @@
 package com.company.serverManager;
 
+import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.Models.Index.WordIndex;
 import com.company.seoSuggester.SEOAspects.SEOAspect;
@@ -62,5 +63,12 @@ public class ServerManager {
 
     public ArrayList<DocumentIndex> fetchMatchingIndexes(String query) {
         return new ArrayList<DocumentIndex>();
+    }
+
+    public Lexicon getLexicon() {
+        return new Lexicon();
+    }
+
+    public void updateLexicon() {
     }
 }
