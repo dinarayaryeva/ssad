@@ -4,6 +4,7 @@ import com.company.utils.PlainDocument;
 import com.company.utils.htmlParser.Document;
 
 public class DocumentIndex extends ForwardIndex {
+
     private int plainDocId;
     private int docId;
     private int docStatus;
@@ -11,15 +12,23 @@ public class DocumentIndex extends ForwardIndex {
     private int visits;
     private int seoRank;
 
+    /**
+     * Separation between HTML document and index
+     * document model needed
+     */
+    private Document docData;
+
+    public DocumentIndex(Document docData) {
+        this.docData = docData;
+    }
 
     public int getDocId() {
         return docId;
     }
+
     public static DocumentIndex getIndexById(int docId) {
         return null;
     }
-
-    public DocumentIndex(PlainDocument doc) {}
 
     public int getSeoRank() {
         return seoRank;
@@ -34,4 +43,9 @@ public class DocumentIndex extends ForwardIndex {
     public String getPlainDoc() {
         return dataServerConnection.getPlainDocument(plainDocId);
     }
+
+    public Document getDocData() {
+        return docData;
+    }
+
 }

@@ -17,6 +17,10 @@ public class SEOProblemCollection extends Component {
         return childComponents;
     }
 
+    public SEOProblemCollection() {
+        childComponents = new ArrayList<Component>();
+    }
+
     @Override
     public Component getProblems(ArrayList<Element> eles) {
         SEOProblemCollection problemsCollection = new SEOProblemCollection();
@@ -29,6 +33,7 @@ public class SEOProblemCollection extends Component {
         return problemsCollection;
     }
 
+    //TODO initialize childComponents before parsing
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
         return  childComponents.stream().mapToInt((p) ->
@@ -46,7 +51,7 @@ public class SEOProblemCollection extends Component {
     }
 
     public void addComponent(Component c) {
-
+        childComponents.add(c);
     }
 
 }

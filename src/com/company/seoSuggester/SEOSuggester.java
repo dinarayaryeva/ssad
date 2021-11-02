@@ -17,13 +17,10 @@ public class SEOSuggester {
     public SEOSuggester() {
         seoConfig = serverConnection.getSEOConfig();
     }
-    public Component getSEOSuggestions(DocumentIndex index) {
 
-        /**
-         * Parsing HTML document.
-         */
-        Document doc = HTMLParser.parse(index.getPlainDoc());
-        ArrayList<Element> elements = doc.selectAll();
+    public Component getSEOSuggestions(Document document) {
+
+        ArrayList<Element> elements = document.selectAll();
 
         return seoConfig.getProblems(elements);
 

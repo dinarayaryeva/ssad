@@ -1,10 +1,9 @@
 package com.company.seoSuggester.SEOProblems;
 
 import com.company.seoSuggester.Component;
-import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.Tag;
+
 import java.util.ArrayList;
 
 public abstract class SEOProblem extends Component {

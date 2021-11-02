@@ -15,20 +15,23 @@ public class SEORanker {
      */
     public ServerManager serverConnection;
     public SEOProblemCollection seoConfig;
+    private Integer fullSEOScore;
 
     public SEORanker() {
+        serverConnection = new ServerManager();
         seoConfig = serverConnection.getSEOConfig();
+        fullSEOScore = serverConnection.getFullSeoScore();
     }
 
-    public int calculateDocumentRank(DocumentIndex index) {
+    public int calculateDocumentRank(Document document) {
 
-        /**
-         * Parsing HTML document.
-         */
-        Document doc = HTMLParser.parse(index.getPlainDoc());
-        ArrayList<Element> elements = doc.selectAll();
+        ArrayList<Element> elements = document.selectAll();
 
         int problemsImpact = seoConfig.calculateSEOImpact(elements);
-        return seoConfig.getFullSEOScore() - problemsImpact;
+        return fullSEOScore - problemsImpact;
+    }
+
+    public Integer getFullSEOScore() {
+        return fullSEOScore;
     }
 }

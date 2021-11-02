@@ -5,6 +5,7 @@ import com.company.seoSuggester.SEORanker;
 import com.company.serverManager.ServerManager;
 import com.company.utils.PlainDocument;
 import com.company.utils.htmlParser.Document;
+import com.company.utils.htmlParser.HTMLParser;
 
 public class Indexer {
     /**
@@ -17,13 +18,26 @@ public class Indexer {
      */
     ServerManager dataServerConnection;
     SEORanker seoRanker;
+    HTMLParser htmlParser;
 
-    public DocumentIndex makeDocumentIndex(PlainDocument doc) {
+    public Indexer() {
+        dataServerConnection = new ServerManager();
+        seoRanker = new SEORanker();
+        htmlParser = new HTMLParser();
+    }
+
+    public DocumentIndex makeDocumentIndex(PlainDocument plainDoc) {
+
+        Document doc = htmlParser.parse(plainDoc);
         DocumentIndex index = new DocumentIndex(doc);
-        int seoRank = seoRanker.calculateDocumentRank(index);
+
+        int seoRank = seoRanker.calculateDocumentRank(index.getDocData());
         index.setSeoRank(seoRank);
+
         dataServerConnection.storeIndex(index);
         return index;
+
+
     }
 //    public DocumentIndex updateDocumentIndex(DocumentIndex doc) {
 //

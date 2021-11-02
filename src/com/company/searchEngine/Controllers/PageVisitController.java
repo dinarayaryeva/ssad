@@ -73,8 +73,8 @@ public class PageVisitController {
         /**
          * Gathering suggestions for the webpage.
          */
-        Component seoSuggestions = seoSuggester.getSEOSuggestions(index);
-        ArrayList<String> keywordsSuggestions = keywordsSuggester.suggestKeywords(index);
+        Component seoSuggestions = seoSuggester.getSEOSuggestions(index.getDocData());
+        ArrayList<String> keywordsSuggestions = keywordsSuggester.suggestKeywords(index.getDocData());
 
         ExtendedPageVisitResponse response = new ExtendedPageVisitResponse(url, seoSuggestions, keywordsSuggestions);
 

@@ -1,6 +1,7 @@
 package com.company.seoSuggester;
 
 import com.company.searchEngine.Models.Index.DocumentIndex;
+import com.company.utils.htmlParser.Document;
 
 import java.util.ArrayList;
 
@@ -8,10 +9,10 @@ public class KeywordsSuggester {
 
     /**
      * Creates keyword suggestions for the given document
-     * @param doc
+     * @param
      * @return
      */
-    public ArrayList<String> suggestKeywords(DocumentIndex doc) {
+    public ArrayList<String> suggestKeywords(Document docData) {
         return new ArrayList<String>();
     }
 }

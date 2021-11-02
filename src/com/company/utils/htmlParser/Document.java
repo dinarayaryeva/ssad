@@ -3,10 +3,18 @@ package com.company.utils.htmlParser;
 import java.util.ArrayList;
 
 public class Document {
-    public Elements select(String slector) {
-        return new Elements();
+
+    ArrayList<Element> elements;
+
+    public Document(ArrayList<Element> elements) {
+        this.elements = elements;
     }
+
+    public ArrayList<Element> select(String slector) {
+        return elements;
+    }
+
     public ArrayList<Element> selectAll() {
-        return new ArrayList<Element>();
+        return elements;
     }
 }
