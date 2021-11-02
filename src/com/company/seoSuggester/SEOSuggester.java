@@ -5,24 +5,25 @@ import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Document;
+import com.company.utils.htmlParser.Element;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.HTMLParser;
 
 import java.util.ArrayList;
 
 public class SEOSuggester {
-    /**
-     *
-     */
 
     ServerManager dataServerConnection;
     SEOAspect seoConfig;
-    public ArrayList<SEOSuggestion> getSEOSuggestions(DocumentIndex index) {
+    public Component getSEOSuggestions(DocumentIndex index) {
 
+        /**
+         * Parsing HTML document.
+         */
         Document doc = HTMLParser.parse(index.getPlainDoc());
-        Elements elements = doc.selectAll();
+        ArrayList<Element> elements = doc.selectAll();
 
-        return seoConfig.getSuggestions(elements);
+        return seoConfig.getProblems(elements);
 
     }
 }

@@ -6,6 +6,7 @@ import com.company.httpMessages.SearchResponse.ExtendedPageVisitResponse;
 import com.company.searchEngine.Analytics.PageVisitAnalytics;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.PageFetcher;
+import com.company.seoSuggester.Component;
 import com.company.seoSuggester.KeywordsSuggester;
 import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOSuggester;
@@ -74,7 +75,7 @@ public class PageVisitController {
         /**
          * Gathering suggestions for the webpage.
          */
-        ArrayList<SEOSuggestion> seoSuggestions = seoSuggester.getSEOSuggestions(index);
+        Component seoSuggestions = seoSuggester.getSEOSuggestions(index);
         ArrayList<String> keywordsSuggestions = keywordsSuggester.suggestKeywords(index);
 
         ExtendedPageVisitResponse response = new ExtendedPageVisitResponse(url, seoSuggestions, keywordsSuggestions);

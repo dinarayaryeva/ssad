@@ -3,36 +3,42 @@ package com.company.seoSuggester.SEOAspects;
 import com.company.seoSuggester.Component;
 import com.company.seoSuggester.SEOProblems.SEOProblem;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
+import com.company.utils.htmlParser.Element;
 import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.Tag;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class SEOAspect extends Component {
 
-    public Integer fullSEOScore;
+    private static Integer fullSEOScore;
     public static String name;
-    public static ArrayList<Tag> tags;
-    private ArrayList<SEOAspect> childAspects;
-    private ArrayList<SEOProblem> seoProblems;
 
+    private ArrayList<Component> childComponents;
 
-    public ArrayList<SEOAspect> getChildAspects() {
-        return childAspects;
-    }
-
-
-    public ArrayList<SEOProblem> getChildProblems() {
-        return seoProblems;
+    public ArrayList<Component> getChildComponents() {
+        return childComponents;
     }
 
     @Override
-    public ArrayList<SEOSuggestion> getSuggestions(Elements eles) {
+    public Component getProblems(ArrayList<Element> eles) {
         return null;
     }
 
-    public static Integer calculateSEOImpact(Elements elements) {
-        return 0;
+    @Override
+    public Integer calculateSEOImpact(ArrayList<Element> eles) {
+        return  childComponents.stream().mapToInt((p) ->
+                p.calculateSEOImpact(eles.stream()
+                        .filter(e -> p.tags.stream().anyMatch(e.getClass()::equals))
+                        .collect(Collectors.toCollection(ArrayList::new)))).sum();
+    }
+
+//    .toList()
+//    .collect(Collectors
+//                     .toCollection(ArrayList::new));
+    public Integer getFullSEOScore() {
+        return SEOAspect.fullSEOScore;
     }
 
 

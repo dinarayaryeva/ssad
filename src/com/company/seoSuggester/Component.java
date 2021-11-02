@@ -2,24 +2,16 @@ package com.company.seoSuggester;
 
 import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
+import com.company.utils.htmlParser.Element;
 import com.company.utils.htmlParser.Elements;
 
 import java.util.ArrayList;
 
 public abstract class Component {
 
+    public static ArrayList<Element> tags;
 
-    public abstract ArrayList<SEOSuggestion> getSuggestions(Elements eles);
+    public abstract Component getProblems(ArrayList<Element> eles);
 
-    /**
-     * @param eles html tags
-     * @return impact on page SEO score
-     */
-    public static Integer calculateSEOImpact(Elements eles) {
-        return null;
-    }
-
-    public ArrayList<SEOSuggestion> getSEOSuggestions() {
-        return new ArrayList<SEOSuggestion>();
-    }
+    public abstract Integer calculateSEOImpact(ArrayList<Element> eles);
 }
