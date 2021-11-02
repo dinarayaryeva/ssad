@@ -1,10 +1,9 @@
 package com.company.seoSuggester;
 
 import com.company.searchEngine.Models.Index.DocumentIndex;
-import com.company.seoSuggester.SEOAspects.SEOAspect;
+import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.utils.htmlParser.Document;
 import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.HTMLParser;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class SEORanker {
      * Calculates SEO rank of the document
      */
 
-    public SEOAspect seoConfig;
+    public SEOProblemCollection seoConfig;
 
     public int calculateDocumentRank(DocumentIndex index) {
 

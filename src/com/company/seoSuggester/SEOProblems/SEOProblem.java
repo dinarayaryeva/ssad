@@ -1,10 +1,8 @@
 package com.company.seoSuggester.SEOProblems;
 
 import com.company.seoSuggester.Component;
-import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.Tag;
 import java.util.ArrayList;
 

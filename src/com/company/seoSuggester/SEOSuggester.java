@@ -1,12 +1,10 @@
 package com.company.seoSuggester;
 
 import com.company.searchEngine.Models.Index.DocumentIndex;
-import com.company.seoSuggester.SEOAspects.SEOAspect;
-import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
+import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Document;
 import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.Elements;
 import com.company.utils.htmlParser.HTMLParser;
 
 import java.util.ArrayList;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 public class SEOSuggester {
 
     ServerManager dataServerConnection;
-    SEOAspect seoConfig;
+    SEOProblemCollection seoConfig;
     public Component getSEOSuggestions(DocumentIndex index) {
 
         /**

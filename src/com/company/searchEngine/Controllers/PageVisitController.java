@@ -8,9 +8,7 @@ import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.PageFetcher;
 import com.company.seoSuggester.Component;
 import com.company.seoSuggester.KeywordsSuggester;
-import com.company.seoSuggester.SEOAspects.SEOAspect;
 import com.company.seoSuggester.SEOSuggester;
-import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.serverManager.ServerManager;
 import com.company.utils.URLToDocidConverter;
 

@@ -1,16 +1,12 @@
-package com.company.seoSuggester.SEOAspects;
+package com.company.seoSuggester.SEOProblemCollection;
 
 import com.company.seoSuggester.Component;
-import com.company.seoSuggester.SEOProblems.SEOProblem;
-import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.Elements;
-import com.company.utils.htmlParser.Tag;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class SEOAspect extends Component {
+public class SEOProblemCollection extends Component {
 
     private static Integer fullSEOScore;
     public static String name;
@@ -23,7 +19,7 @@ public class SEOAspect extends Component {
 
     @Override
     public Component getProblems(ArrayList<Element> eles) {
-        SEOAspect problemsCollection = new SEOAspect();
+        SEOProblemCollection problemsCollection = new SEOProblemCollection();
         ArrayList<Component> children =  childComponents.stream()
                 .map((p) -> p.getProblems(eles.stream()
                         .filter(e -> p.tags.stream().anyMatch(e.getClass()::equals))
@@ -41,17 +37,14 @@ public class SEOAspect extends Component {
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
     }
 
-
-//    .toList()
-//    .collect(Collectors
-//                     .toCollection(ArrayList::new));
     public Integer getFullSEOScore() {
-        return SEOAspect.fullSEOScore;
+        return SEOProblemCollection.fullSEOScore;
     }
 
     public void setChildComponents(ArrayList<Component> children) {
         childComponents = children;
     }
+
     public void addComponent(Component c) {
 
     }

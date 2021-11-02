@@ -3,7 +3,7 @@ package com.company.serverManager;
 import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.Models.Index.WordIndex;
-import com.company.seoSuggester.SEOAspects.SEOAspect;
+import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.utils.PlainDocument;
 
 import java.io.InputStream;
@@ -13,12 +13,12 @@ public class ServerManager {
 
     // SEO configuration object
 
-    public SEOAspect getSEOConfig() {
-        return new SEOAspect();
+    public SEOProblemCollection getSEOConfig() {
+        return new SEOProblemCollection();
     }
 
-    public SEOAspect updateSEOConfig() {
-        return new SEOAspect();
+    public SEOProblemCollection updateSEOConfig() {
+        return new SEOProblemCollection();
     }
 
 
