@@ -3,6 +3,7 @@ package com.company.seoSuggester.SEOProblems;
 import com.company.seoSuggester.Component;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Element;
+import com.company.utils.htmlParser.PageDescription;
 import com.company.utils.htmlParser.Title;
 import com.company.utils.htmlParser.Elements;
 
@@ -11,6 +12,10 @@ import java.util.stream.Collectors;
 
 public class TitleLengthProblem extends SEOProblem {
 
+    public TitleLengthProblem() {
+        tags = new ArrayList<Element>();
+        tags.add(new Title());
+    }
 
     @Override
     public Component getProblems(ArrayList<Element> eles) {

@@ -3,7 +3,10 @@ package com.company.serverManager;
 import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.Models.Index.WordIndex;
+import com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage.MetaTagsUsage;
 import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
+import com.company.seoSuggester.SEOProblems.DescriptionNotFoundProblem;
+import com.company.seoSuggester.SEOProblems.TitleLengthProblem;
 import com.company.utils.PlainDocument;
 
 import java.io.InputStream;
@@ -14,7 +17,16 @@ public class ServerManager {
     // SEO configuration object
 
     public SEOProblemCollection getSEOConfig() {
-        return new SEOProblemCollection();
+
+        SEOProblemCollection seoConfig = new SEOProblemCollection();
+
+        MetaTagsUsage metaTagsUsage = new MetaTagsUsage();
+        metaTagsUsage.addComponent(new TitleLengthProblem());
+        metaTagsUsage.addComponent(new DescriptionNotFoundProblem());
+
+        seoConfig.addComponent(metaTagsUsage);
+
+        return seoConfig;
     }
 
     public SEOProblemCollection updateSEOConfig() {

@@ -11,8 +11,12 @@ import java.util.ArrayList;
 
 public class SEOSuggester {
 
-    ServerManager dataServerConnection;
+    ServerManager serverConnection;
     SEOProblemCollection seoConfig;
+
+    public SEOSuggester() {
+        seoConfig = serverConnection.getSEOConfig();
+    }
     public Component getSEOSuggestions(DocumentIndex index) {
 
         /**

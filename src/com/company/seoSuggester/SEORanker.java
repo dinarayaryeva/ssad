@@ -2,6 +2,7 @@ package com.company.seoSuggester;
 
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
+import com.company.serverManager.ServerManager;
 import com.company.utils.htmlParser.Document;
 import com.company.utils.htmlParser.Element;
 import com.company.utils.htmlParser.HTMLParser;
@@ -12,8 +13,12 @@ public class SEORanker {
     /**
      * Calculates SEO rank of the document
      */
-
+    public ServerManager serverConnection;
     public SEOProblemCollection seoConfig;
+
+    public SEORanker() {
+        seoConfig = serverConnection.getSEOConfig();
+    }
 
     public int calculateDocumentRank(DocumentIndex index) {
 

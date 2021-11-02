@@ -10,12 +10,15 @@ import java.util.stream.Collectors;
 
 public class DescriptionNotFoundProblem extends SEOProblem {
 
-
+    public DescriptionNotFoundProblem() {
+        tags = new ArrayList<Element>();
+        tags.add(new PageDescription());
+    }
     @Override
     public Component getProblems(ArrayList<Element> eles) {
-        if(eles.stream()
+        if ( eles.stream()
                 .filter(e -> ((PageDescription) e).value.isEmpty())
-                .collect(Collectors.toCollection(ArrayList::new)).size()!=0) return this;
+                .collect(Collectors.toCollection(ArrayList::new)).size() != 0) return this;
         else return null;
     }
 
