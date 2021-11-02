@@ -15,7 +15,7 @@ public class SEOAspect extends Component {
     private static Integer fullSEOScore;
     public static String name;
 
-    private ArrayList<Component> childComponents;
+    private ArrayList<Component> childComponents = null;
 
     public ArrayList<Component> getChildComponents() {
         return childComponents;
@@ -23,7 +23,14 @@ public class SEOAspect extends Component {
 
     @Override
     public Component getProblems(ArrayList<Element> eles) {
-        return null;
+        SEOAspect problemsCollection = new SEOAspect();
+        ArrayList<Component> children =  childComponents.stream()
+                .map((p) -> p.getProblems(eles.stream()
+                        .filter(e -> p.tags.stream().anyMatch(e.getClass()::equals))
+                        .collect(Collectors.toCollection(ArrayList::new))))
+                        .collect(Collectors.toCollection(ArrayList::new));
+        problemsCollection.setChildComponents(children);
+        return problemsCollection;
     }
 
     @Override
@@ -34,6 +41,7 @@ public class SEOAspect extends Component {
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
     }
 
+
 //    .toList()
 //    .collect(Collectors
 //                     .toCollection(ArrayList::new));
@@ -41,7 +49,9 @@ public class SEOAspect extends Component {
         return SEOAspect.fullSEOScore;
     }
 
-
+    public void setChildComponents(ArrayList<Component> children) {
+        childComponents = children;
+    }
     public void addComponent(Component c) {
 
     }

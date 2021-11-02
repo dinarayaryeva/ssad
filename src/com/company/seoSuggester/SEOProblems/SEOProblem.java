@@ -14,8 +14,10 @@ public abstract class SEOProblem extends Component {
     public ArrayList<SEOSuggestion> suggestions;
     public static ArrayList<Tag> tags;
 
+    @Override
+    public abstract Integer calculateSEOImpact(ArrayList<Element> eles);
 
-    public Integer calculateSEOImpact(ArrayList<Element> eles) {
-        return 0;
-    };
+    @Override
+    public abstract Component getProblems(ArrayList<Element> eles);
+
 }
