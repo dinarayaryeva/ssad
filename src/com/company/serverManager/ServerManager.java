@@ -40,8 +40,9 @@ public class ServerManager {
 
     public void updateIndex(DocumentIndex index) {}
 
+    //TODO SEOConfig iterator for max score
     public int getFullSeoScore() {
-        return (int)Math.random();
+        return 50;
     }
 
     public String getPlainDocument(int plainDocId) {

@@ -23,6 +23,6 @@ public class Main {
 
         Integer docRank = seoRanker.calculateDocumentRank(document);
 
-        System.out.printf("Document rank: %d / %d", docRank, seoRanker.getFullSEOScore());
+        System.out.printf("Document rank: %d / %d\n", docRank, seoRanker.getFullSEOScore());
     }
 }
