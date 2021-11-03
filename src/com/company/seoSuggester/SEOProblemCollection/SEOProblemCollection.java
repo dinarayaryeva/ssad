@@ -1,7 +1,7 @@
 package com.company.seoSuggester.SEOProblemCollection;
 
 import com.company.seoSuggester.Component;
-import com.company.utils.htmlParser.Element;
+import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -33,12 +33,13 @@ public class SEOProblemCollection extends Component {
         return problemsCollection;
     }
 
-    //TODO initialize childComponents before parsing
+    //TODO fix filtering
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
-        return  childComponents.stream().mapToInt((p) ->
-                p.calculateSEOImpact(eles.stream()
-                        .filter(e -> p.tags.stream().anyMatch(e.getClass()::equals))
+        return  childComponents.stream().mapToInt((c) ->
+                c.calculateSEOImpact(eles.stream()
+                        .filter(e -> c.tags.stream()
+                                .anyMatch(e.getClass()::equals))
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
     }
 

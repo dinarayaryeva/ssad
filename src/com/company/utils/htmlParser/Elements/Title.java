@@ -1,4 +1,6 @@
-package com.company.utils.htmlParser;
+package com.company.utils.htmlParser.Elements;
+
+import com.company.utils.htmlParser.Elements.Element;
 
 public class Title extends Element {
 

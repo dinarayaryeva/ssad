@@ -1,9 +1,9 @@
 package com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage;
 
 import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
-import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.PageDescription;
-import com.company.utils.htmlParser.Title;
+import com.company.utils.htmlParser.Elements.Element;
+import com.company.utils.htmlParser.Elements.PageDescription;
+import com.company.utils.htmlParser.Elements.Title;
 
 import java.util.ArrayList;
 

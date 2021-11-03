@@ -2,9 +2,9 @@ package com.company;
 
 import com.company.seoSuggester.SEORanker;
 import com.company.utils.htmlParser.Document;
-import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.PageDescription;
-import com.company.utils.htmlParser.Title;
+import com.company.utils.htmlParser.Elements.Element;
+import com.company.utils.htmlParser.Elements.PageDescription;
+import com.company.utils.htmlParser.Elements.Title;
 
 import java.util.ArrayList;
 

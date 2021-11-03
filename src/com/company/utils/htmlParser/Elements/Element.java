@@ -1,4 +1,4 @@
-package com.company.utils.htmlParser;
+package com.company.utils.htmlParser.Elements;
 
 import java.util.ArrayList;
 

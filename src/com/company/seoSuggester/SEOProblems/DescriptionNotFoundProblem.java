@@ -1,9 +1,8 @@
 package com.company.seoSuggester.SEOProblems;
 
 import com.company.seoSuggester.Component;
-import com.company.utils.htmlParser.Element;
-import com.company.utils.htmlParser.PageDescription;
-import com.company.utils.htmlParser.Title;
+import com.company.utils.htmlParser.Elements.Element;
+import com.company.utils.htmlParser.Elements.PageDescription;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

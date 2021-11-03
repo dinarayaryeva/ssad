@@ -1,6 +1,7 @@
 package com.company.utils.htmlParser;
 
 import com.company.utils.PlainDocument;
+import com.company.utils.htmlParser.Elements.Element;
 
 import java.io.InputStream;
 import java.util.ArrayList;

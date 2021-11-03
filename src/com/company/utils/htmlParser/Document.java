@@ -1,5 +1,7 @@
 package com.company.utils.htmlParser;
 
+import com.company.utils.htmlParser.Elements.Element;
+
 import java.util.ArrayList;
 
 public class Document {
