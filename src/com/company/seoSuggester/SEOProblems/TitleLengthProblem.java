@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 public class TitleLengthProblem extends SEOProblem {
 
     public TitleLengthProblem() {
-        tags = new ArrayList<Element>();
+        tags = new ArrayList<>();
         tags.add(new Title());
     }
 
     @Override
     public Component getProblems(ArrayList<Element> eles) {
         if(eles.stream()
-                .filter(e -> ((Title)e).value.length()>20||((Title)e).value.length()<3)
+                .filter(e -> (e).value.length()>20||(e).value.length()<3)
                 .collect(Collectors.toCollection(ArrayList::new)).size()!=0) return this;
         return null;
     }
@@ -25,7 +25,7 @@ public class TitleLengthProblem extends SEOProblem {
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
         return eles.size() - eles.stream()
-                .filter(e -> ((Title)e).value.length()>20||((Title)e).value.length()<3)
+                .filter(e -> (e).value.length()>20||(e).value.length()<3)
                 .collect(Collectors.toCollection(ArrayList::new)).size();
     }
 }

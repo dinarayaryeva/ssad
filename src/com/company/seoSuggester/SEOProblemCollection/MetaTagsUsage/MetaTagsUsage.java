@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class MetaTagsUsage extends SEOProblemCollection {
 
     public MetaTagsUsage() {
-        tags = new ArrayList<Element>();
+        tags = new ArrayList<>();
         tags.add(new PageDescription());
         tags.add(new Title());
     }

@@ -26,19 +26,22 @@ public class SEOProblemCollection extends Component {
         SEOProblemCollection problemsCollection = new SEOProblemCollection();
         ArrayList<Component> children =  childComponents.stream()
                 .map((p) -> p.getProblems(eles.stream()
-                        .filter(e -> p.tags.stream().anyMatch(e.getClass()::equals))
+                        .filter(e -> p.tags.stream()
+                                .map(k -> k.getClass())
+                                .anyMatch(e.getClass()::equals))
                         .collect(Collectors.toCollection(ArrayList::new))))
                         .collect(Collectors.toCollection(ArrayList::new));
         problemsCollection.setChildComponents(children);
         return problemsCollection;
     }
 
-    //TODO fix filtering
+    //TODO initialize childComponents before parsing
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
         return  childComponents.stream().mapToInt((c) ->
                 c.calculateSEOImpact(eles.stream()
                         .filter(e -> c.tags.stream()
+                                .map(k -> k.getClass())
                                 .anyMatch(e.getClass()::equals))
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
     }
