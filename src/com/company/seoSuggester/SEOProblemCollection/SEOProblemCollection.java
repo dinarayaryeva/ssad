@@ -39,10 +39,12 @@ public class SEOProblemCollection extends Component {
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
         return  childComponents.stream().mapToInt((c) ->
-                c.calculateSEOImpact(eles.stream()
-                        .filter(e -> c.tags.stream()
+                c.calculateSEOImpact(
+                        eles.stream().filter(e ->
+                                c.tags.stream()
                                 .map(k -> k.getClass())
-                                .anyMatch(e.getClass()::equals))
+                                .anyMatch(e.getClass()::equals)
+                        )
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
     }
 
