@@ -12,7 +12,6 @@ public abstract class SEOProblem extends Component {
     public static String description;
     private static Integer weight = 0;
     public ArrayList<SEOSuggestion> suggestions;
-    public static ArrayList<Element> tags;
 
     @Override
     public abstract Integer calculateSEOImpact(ArrayList<Element> eles);

@@ -38,11 +38,11 @@ public class SEOProblemCollection extends Component {
     //TODO initialize childComponents before parsing
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
-        return  childComponents.stream().mapToInt((c) ->
+        return  childComponents.stream().mapToInt((Component c) ->
                 c.calculateSEOImpact(
-                        eles.stream().filter(e ->
+                        eles.stream().filter((Element e) ->
                                 c.tags.stream()
-                                .map(k -> k.getClass())
+                                .map((Element k) -> k.getClass())
                                 .anyMatch(e.getClass()::equals)
                         )
                         .collect(Collectors.toCollection(ArrayList::new)))).sum();
