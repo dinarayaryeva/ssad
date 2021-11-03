@@ -15,6 +15,7 @@ public class DescriptionNotFoundProblem extends SEOProblem {
         tags = new ArrayList<>();
         tags.add(new PageDescription());
     }
+
     @Override
     public Component getProblems(ArrayList<Element> eles) {
         if ( eles.stream()

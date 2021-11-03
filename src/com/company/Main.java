@@ -17,7 +17,7 @@ public class Main {
         ArrayList<Element> elements = new ArrayList<>();
 
         elements.add(new Title("Title1"));
-        elements.add(new PageDescription("Description1"));
+        elements.add(new PageDescription(""));
 
         Document document = new Document(elements);
 
