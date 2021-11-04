@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class TitleLengthProblem extends SEOProblem {
 
-    private static Integer weight = 10;
+    private static Integer seoWeight = 10;
 
     public TitleLengthProblem() {
         tags = new ArrayList<>();

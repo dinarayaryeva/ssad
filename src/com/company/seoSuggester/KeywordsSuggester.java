@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class KeywordsSuggester {
 
     /**
-     * Creates keyword suggestions for the given document
+     * Provides keyword suggestions for the given document
      * @param
      * @return
      */

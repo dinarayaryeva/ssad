@@ -13,8 +13,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ServerManager {
-
-    // SEO configuration object
+    /**
+     * Server connection mock class
+     */
 
     public SEOProblemCollection getSEOConfig() {
 

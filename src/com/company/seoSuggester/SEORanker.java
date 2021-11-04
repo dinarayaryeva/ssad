@@ -12,21 +12,40 @@ public class SEORanker {
      * Calculates SEO rank of the document
      */
 
+    /**
+     * Server mock object
+     */
     public ServerManager serverConnection;
+
+    /**
+     * Configuration object contains
+     * all possible problems and suggestions
+     */
     public SEOProblemCollection seoConfig;
-    private Integer fullSEOScore;
+
+    /**
+     * Maximum possible document's SEO score.
+     * (Can be obtained in case if document
+     * has no problems)
+     */
+    private Integer maxSEOScore;
 
     public SEORanker() {
         serverConnection = new ServerManager();
         seoConfig = serverConnection.getSEOConfig();
-        fullSEOScore = serverConnection.getFullSeoScore();
+        maxSEOScore = serverConnection.getFullSeoScore();
     }
 
-    public Integer getFullSEOScore() {
-        return fullSEOScore;
+    public Integer getMaxSEOScore() {
+        return maxSEOScore;
     }
 
-    public int calculateDocumentRank(Document document) {
+    /**
+     *
+     * @param document document to be analyzed
+     * @return document's SEO rank
+     */
+    public Integer calculateDocumentRank(Document document) {
 
         System.out.printf("Calculating SEO rank of document '%s':\n", document.getTitle());
 
@@ -38,7 +57,7 @@ public class SEORanker {
          * Retrieving page rank by subtracting summary impact of
          * all present problems from maximum possible score
          */
-        return fullSEOScore - problemsImpact;
+        return maxSEOScore - problemsImpact;
     }
 
 

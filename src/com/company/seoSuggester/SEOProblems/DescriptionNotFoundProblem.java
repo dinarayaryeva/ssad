@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class DescriptionNotFoundProblem extends SEOProblem {
 
-    private static Integer weight = 40;
+    private static Integer seoWeight = 40;
 
     public DescriptionNotFoundProblem() {
         tags = new ArrayList<>();

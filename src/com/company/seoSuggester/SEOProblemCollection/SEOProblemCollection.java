@@ -7,20 +7,37 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class SEOProblemCollection extends Component {
-
-    private static Integer fullSEOScore;
-    public static String name;
+    /**
+     * (Compound) class contains problems or another
+     * problem collections grouped by interest tags
+     */
 
     private ArrayList<Component> childComponents = null;
+
+    public SEOProblemCollection() {
+        childComponents = new ArrayList<>();
+    }
 
     public ArrayList<Component> getChildComponents() {
         return childComponents;
     }
 
-    public SEOProblemCollection() {
-        childComponents = new ArrayList<Component>();
+    public void setChildComponents(ArrayList<Component> children) {
+        childComponents = children;
     }
 
+    public void addComponent(Component c) {
+        childComponents.add(c);
+    }
+
+    /**
+     *
+     * @param eles array of
+     * document's elements
+     * @return present in eles problems.
+     * Returns problems collection contains existing
+     * problems
+     */
     @Override
     public Component getProblems(ArrayList<Element> eles) {
         SEOProblemCollection problemsCollection = new SEOProblemCollection();
@@ -35,7 +52,7 @@ public class SEOProblemCollection extends Component {
         return problemsCollection;
     }
 
-    //TODO initialize childComponents before parsing
+
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
 
@@ -56,17 +73,7 @@ public class SEOProblemCollection extends Component {
 
     }
 
-    public Integer getFullSEOScore() {
-        return SEOProblemCollection.fullSEOScore;
-    }
 
-    public void setChildComponents(ArrayList<Component> children) {
-        childComponents = children;
-    }
-
-    public void addComponent(Component c) {
-        childComponents.add(c);
-    }
 
 }
 
