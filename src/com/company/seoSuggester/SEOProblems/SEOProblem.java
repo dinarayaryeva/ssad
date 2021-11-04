@@ -19,11 +19,5 @@ public abstract class SEOProblem extends Component {
     @Override
     public abstract Component getProblems(ArrayList<Element> eles);
 
-    public void printImpactPreCalcMsg() {
-        System.out.printf("Calculating impact of %s\n", this.getClass().getSimpleName());
-    }
 
-    public void printImpactPostCalcMsg(Integer impact) {
-        System.out.printf("Impact of %s is %d\n", this.getClass().getSimpleName(), impact);
-    }
 }
