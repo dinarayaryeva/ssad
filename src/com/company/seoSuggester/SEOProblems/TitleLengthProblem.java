@@ -9,7 +9,10 @@ import java.util.stream.Collectors;
 
 public class TitleLengthProblem extends SEOProblem {
 
-    private static Integer seoWeight = 10;
+    @Override
+    public Integer getSeoWeight() {
+        return 10;
+    }
 
     public TitleLengthProblem() {
         tags = new ArrayList<>();
@@ -25,20 +28,4 @@ public class TitleLengthProblem extends SEOProblem {
         return Boolean.FALSE;
     }
 
-    @Override
-    public Component getProblems(ArrayList<Element> eles) {
-        return problemIsPresent(eles) ? this : null;
-    }
-
-    @Override
-    public Integer calculateSEOImpact(ArrayList<Element> eles) {
-
-        printImpactPreCalcMsg();
-
-        Integer impact = problemIsPresent(eles) ? seoWeight : 0;
-
-        printImpactPostCalcMsg(impact);
-
-        return impact;
-    }
 }

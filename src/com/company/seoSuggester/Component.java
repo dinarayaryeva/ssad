@@ -13,11 +13,6 @@ public abstract class Component {
 
     private String description;
 
-    /**
-     * Ratio of problems impacts on
-     * SEO score
-     */
-    protected static Integer seoWeight = 0;
 
     /**
      * Array of tags component
@@ -50,7 +45,7 @@ public abstract class Component {
     }
 
     public Integer getSeoWeight() {
-        return seoWeight;
+        return 0;
     }
 
     public void printImpactPreCalcMsg() {

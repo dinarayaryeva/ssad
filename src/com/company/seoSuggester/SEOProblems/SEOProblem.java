@@ -29,7 +29,9 @@ public abstract class SEOProblem extends Component {
 
         printImpactPreCalcMsg();
 
-        Integer impact = problemIsPresent(eles) ? seoWeight : 0;
+        Integer impact = problemIsPresent(eles) ? getSeoWeight() : 0;
+
+        Boolean problemIsPresent = problemIsPresent(eles);
 
         printImpactPostCalcMsg(impact);
 
@@ -49,4 +51,8 @@ public abstract class SEOProblem extends Component {
         return problemIsPresent(eles) ? this : null;
     }
 
+    @Override
+    public Integer getSeoWeight() {
+        return 0;
+    }
 }
