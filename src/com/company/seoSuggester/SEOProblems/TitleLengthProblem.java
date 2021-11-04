@@ -26,8 +26,15 @@ public class TitleLengthProblem extends SEOProblem {
 
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
-        return eles.size() - eles.stream()
+
+        printImpactPreCalcMsg();
+
+        Integer impact = eles.size() - eles.stream()
                 .filter(e -> (e).value.length()>20||(e).value.length()<3)
                 .collect(Collectors.toCollection(ArrayList::new)).size();
+
+        printImpactPostCalcMsg(impact);
+
+        return impact;
     }
 }

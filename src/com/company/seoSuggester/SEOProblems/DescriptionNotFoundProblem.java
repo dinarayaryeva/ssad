@@ -18,7 +18,8 @@ public class DescriptionNotFoundProblem extends SEOProblem {
 
     @Override
     public Component getProblems(ArrayList<Element> eles) {
-        if ( eles.stream()
+
+        if (eles.stream()
                 .filter(e -> e.value.isEmpty())
                 .collect(Collectors.toCollection(ArrayList::new)).size() != 0) return this;
         else return null;
@@ -26,8 +27,16 @@ public class DescriptionNotFoundProblem extends SEOProblem {
 
     @Override
     public Integer calculateSEOImpact(ArrayList<Element> eles) {
-        return eles.size() - eles.stream()
+
+        printImpactPreCalcMsg();
+
+        Integer impact = eles.size() - eles.stream()
                 .filter(e -> e.value.isEmpty())
                 .collect(Collectors.toCollection(ArrayList::new)).size();
+
+        printImpactPostCalcMsg(impact);
+
+        return impact;
+
     }
 }

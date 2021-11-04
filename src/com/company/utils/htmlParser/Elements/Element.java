@@ -2,7 +2,8 @@ package com.company.utils.htmlParser.Elements;
 
 import java.util.ArrayList;
 
-public class Element {
+public abstract class Element {
+
     public String value;
     public ArrayList<Element> children;
 
