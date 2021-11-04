@@ -73,12 +73,13 @@ public class SEOProblemCollection extends Component implements Compound {
     }
 
     @Override
-    public ArrayList<SEOSuggestion> seoSuggestions() {
+    public ArrayList<SEOSuggestion> getSuggestions() {
         ArrayList<SEOSuggestion> seoSuggestions = new ArrayList<SEOSuggestion>();
-        childComponents.stream()
+        seoSuggestions = childComponents.stream()
                 .map(c -> c.getSuggestions())
                 .flatMap(Collection::stream)
                 .collect(Collectors.toCollection(ArrayList::new));
+        return seoSuggestions;
     }
 
 

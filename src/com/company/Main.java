@@ -31,5 +31,7 @@ public class Main {
         Component problems = seoSuggester.getProblems(document);
 
         System.out.printf("Document rank: %d / %d\n", docRank, seoRanker.getMaxSEOScore());
+
+        problems.printSeoSuggestions();
     }
 }

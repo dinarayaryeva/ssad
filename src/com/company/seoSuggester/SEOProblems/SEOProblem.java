@@ -6,6 +6,8 @@ import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public abstract class SEOProblem extends Component implements Compound {
     /**
@@ -60,6 +62,11 @@ public abstract class SEOProblem extends Component implements Compound {
     @Override
     public ArrayList<Component> getChildComponents() {
         return suggestions;
+    }
+
+    @Override
+    public ArrayList<SEOSuggestion> getSuggestions() {
+        return suggestions.stream().map(c -> (SEOSuggestion)c).collect(Collectors.toCollection(ArrayList::new));
     }
 
     @Override

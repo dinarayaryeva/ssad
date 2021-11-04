@@ -62,4 +62,12 @@ public abstract class Component {
     public void printImpactPostCalcMsg(Integer impact) {
         System.out.printf("Impact of %s is %d\n", this.getClass().getSimpleName(), impact);
     }
+
+    public void printSeoSuggestions() {
+        System.out.println(this.getClass().getSimpleName());
+        for (SEOSuggestion a : getSuggestions()){
+
+            System.out.println(a.description);
+        }
+    }
 }
