@@ -9,12 +9,14 @@ import java.util.stream.Collectors;
 
 public class TitleLengthProblem extends SEOProblem {
 
+
     @Override
     public Integer getSeoWeight() {
         return 10;
     }
 
     public TitleLengthProblem() {
+        description = "Page has incorrect title length";
         tags = new ArrayList<>();
         tags.add(new Title());
     }

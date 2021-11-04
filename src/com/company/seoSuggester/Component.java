@@ -11,7 +11,7 @@ public abstract class Component {
      * (SEOProblemCollections and SEOProblems)
      */
 
-    private String description;
+    protected String description;
 
 
     /**

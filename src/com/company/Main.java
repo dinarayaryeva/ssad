@@ -28,7 +28,7 @@ public class Main {
         Integer docRank = seoRanker.calculateDocumentRank(document);
 
         //Retrieving suggestions of document 1
-//        Component problems = seoSuggester.getProblems(document);
+        Component problems = seoSuggester.getProblems(document);
 
         System.out.printf("Document rank: %d / %d\n", docRank, seoRanker.getMaxSEOScore());
     }
