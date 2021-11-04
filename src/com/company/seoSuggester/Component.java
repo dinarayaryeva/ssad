@@ -1,5 +1,6 @@
 package com.company.seoSuggester;
 
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
@@ -31,6 +32,12 @@ public abstract class Component {
      * problems
      */
     public abstract Component getProblems(ArrayList<Element> eles);
+
+    /**
+     *
+     * @return
+     */
+    public abstract ArrayList<SEOSuggestion> getSuggestions();
 
     /**
      *

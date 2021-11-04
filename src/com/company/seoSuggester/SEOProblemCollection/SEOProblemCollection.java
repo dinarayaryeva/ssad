@@ -2,9 +2,11 @@ package com.company.seoSuggester.SEOProblemCollection;
 
 import com.company.seoSuggester.Component;
 import com.company.seoSuggester.Compound;
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class SEOProblemCollection extends Component implements Compound {
@@ -68,6 +70,15 @@ public class SEOProblemCollection extends Component implements Compound {
 
         return impact;
 
+    }
+
+    @Override
+    public ArrayList<SEOSuggestion> seoSuggestions() {
+        ArrayList<SEOSuggestion> seoSuggestions = new ArrayList<SEOSuggestion>();
+        childComponents.stream()
+                .map(c -> c.getSuggestions())
+                .flatMap(Collection::stream)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 
