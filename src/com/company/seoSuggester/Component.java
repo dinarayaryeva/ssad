@@ -17,7 +17,7 @@ public abstract class Component {
      * Ratio of problems impacts on
      * SEO score
      */
-    private static Integer seoWeight = 0;
+    protected static Integer seoWeight = 0;
 
     /**
      * Array of tags component

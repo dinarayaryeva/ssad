@@ -17,11 +17,17 @@ public class TitleLengthProblem extends SEOProblem {
     }
 
     @Override
-    public Component getProblems(ArrayList<Element> eles) {
-        if(eles.stream()
+    public Boolean problemIsPresent(ArrayList<Element> eles) {
+        if (eles.stream()
                 .filter(e -> (e).value.length()>20||(e).value.length()<3)
-                .collect(Collectors.toCollection(ArrayList::new)).size()!=0) return this;
-        return null;
+                .collect(Collectors.toCollection(ArrayList::new))
+                .size()!=0) return Boolean.TRUE;
+        return Boolean.FALSE;
+    }
+
+    @Override
+    public Component getProblems(ArrayList<Element> eles) {
+        return problemIsPresent(eles) ? this : null;
     }
 
     @Override
@@ -29,9 +35,7 @@ public class TitleLengthProblem extends SEOProblem {
 
         printImpactPreCalcMsg();
 
-        Integer impact = eles.size() - eles.stream()
-                .filter(e -> (e).value.length()>20||(e).value.length()<3)
-                .collect(Collectors.toCollection(ArrayList::new)).size();
+        Integer impact = problemIsPresent(eles) ? seoWeight : 0;
 
         printImpactPostCalcMsg(impact);
 

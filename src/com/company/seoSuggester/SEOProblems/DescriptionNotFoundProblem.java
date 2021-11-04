@@ -17,26 +17,12 @@ public class DescriptionNotFoundProblem extends SEOProblem {
     }
 
     @Override
-    public Component getProblems(ArrayList<Element> eles) {
-
+    public Boolean problemIsPresent(ArrayList<Element> eles) {
         if (eles.stream()
                 .filter(e -> e.value.isEmpty())
-                .collect(Collectors.toCollection(ArrayList::new)).size() != 0) return this;
-        else return null;
+                .collect(Collectors.toCollection(ArrayList::new))
+                .size() != 0) return Boolean.TRUE;
+        return Boolean.FALSE;
     }
 
-    @Override
-    public Integer calculateSEOImpact(ArrayList<Element> eles) {
-
-        printImpactPreCalcMsg();
-
-        Integer impact = eles.size() - eles.stream()
-                .filter(e -> e.value.isEmpty())
-                .collect(Collectors.toCollection(ArrayList::new)).size();
-
-        printImpactPostCalcMsg(impact);
-
-        return impact;
-
-    }
 }

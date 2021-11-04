@@ -18,8 +18,24 @@ public abstract class SEOProblem extends Component {
      */
     public ArrayList<SEOSuggestion> suggestions;
 
-    @Override
-    public abstract Integer calculateSEOImpact(ArrayList<Element> eles);
+    /**
+     * Checks whether problem exists in the given array of elements
+     * @param eles
+     * @return
+     */
+    public abstract Boolean problemIsPresent(ArrayList<Element> eles);
+
+    public Integer calculateSEOImpact(ArrayList<Element> eles) {
+
+        printImpactPreCalcMsg();
+
+        Integer impact = problemIsPresent(eles) ? seoWeight : 0;
+
+        printImpactPostCalcMsg(impact);
+
+        return impact;
+
+    }
 
     /**
      *
@@ -29,8 +45,8 @@ public abstract class SEOProblem extends Component {
      * Returns problem instance
      * if problem exists.
      */
-    @Override
-    public abstract Component getProblems(ArrayList<Element> eles);
-
+    public Component getProblems(ArrayList<Element> eles) {
+        return problemIsPresent(eles) ? this : null;
+    }
 
 }
