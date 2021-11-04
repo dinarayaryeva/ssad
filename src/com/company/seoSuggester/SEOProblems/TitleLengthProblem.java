@@ -1,6 +1,7 @@
 package com.company.seoSuggester.SEOProblems;
 
 import com.company.seoSuggester.Component;
+import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements.Element;
 import com.company.utils.htmlParser.Elements.Title;
 

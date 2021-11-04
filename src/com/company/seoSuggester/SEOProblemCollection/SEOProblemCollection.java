@@ -7,6 +7,7 @@ import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SEOProblemCollection extends Component implements Compound {
@@ -73,10 +74,17 @@ public class SEOProblemCollection extends Component implements Compound {
     }
 
     @Override
+    public void printSeoSuggestions() {
+        for (Component s : getChildComponents()){
+            if (!Objects.isNull(s)) s.printSeoSuggestions();
+        }
+    }
+
+    @Override
     public ArrayList<SEOSuggestion> getSuggestions() {
         ArrayList<SEOSuggestion> seoSuggestions = new ArrayList<SEOSuggestion>();
         seoSuggestions = childComponents.stream()
-                .map(c -> c.getSuggestions())
+                .map(c -> Objects.isNull(c) ? new ArrayList<SEOSuggestion>() : c.getSuggestions())
                 .flatMap(Collection::stream)
                 .collect(Collectors.toCollection(ArrayList::new));
         return seoSuggestions;

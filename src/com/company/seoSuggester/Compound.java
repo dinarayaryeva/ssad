@@ -8,4 +8,5 @@ public interface Compound {
     public void setChildComponents(ArrayList<Component> children);
     public void addComponent(Component c);
 
+
 }

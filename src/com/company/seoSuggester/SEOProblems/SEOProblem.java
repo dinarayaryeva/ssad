@@ -7,6 +7,7 @@ import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public abstract class SEOProblem extends Component implements Compound {
@@ -66,7 +67,7 @@ public abstract class SEOProblem extends Component implements Compound {
 
     @Override
     public ArrayList<SEOSuggestion> getSuggestions() {
-        return suggestions.stream().map(c -> (SEOSuggestion)c).collect(Collectors.toCollection(ArrayList::new));
+        return suggestions.stream().map(c -> Objects.isNull(c) ? new SEOSuggestion() : (SEOSuggestion)c).collect(Collectors.toCollection(ArrayList::new));
     }
 
     @Override
@@ -78,5 +79,12 @@ public abstract class SEOProblem extends Component implements Compound {
     public void addComponent(Component c) {
         //TODO error handling in case when component is not suggestion
         suggestions.add(c);
+    }
+
+    public void printSeoSuggestions() {
+        System.out.println(getDescription());
+        for (SEOSuggestion s : getSuggestions()){
+            System.out.println(s.getDescription());
+        }
     }
 }

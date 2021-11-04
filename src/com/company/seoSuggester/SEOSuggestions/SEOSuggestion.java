@@ -23,4 +23,7 @@ public class SEOSuggestion extends Component {
         return null;
     }
 
+    @Override
+    public void printSeoSuggestions() {}
+
 }

@@ -19,7 +19,7 @@ public class Main {
 
         //Creating document 1
         ArrayList<Element> elements = new ArrayList<>();
-        elements.add(new Title("Title1"));
+        elements.add(new Title("Title11111111111111111111111111111111111"));
         elements.add(new PageDescription(""));
 
         Document document = new Document(elements);
@@ -30,8 +30,9 @@ public class Main {
         //Retrieving suggestions of document 1
         Component problems = seoSuggester.getProblems(document);
 
-        System.out.printf("Document rank: %d / %d\n", docRank, seoRanker.getMaxSEOScore());
+        System.out.printf("Document rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
 
+        System.out.println("Suggestion List:\n");
         problems.printSeoSuggestions();
     }
 }
