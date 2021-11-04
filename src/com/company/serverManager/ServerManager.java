@@ -21,7 +21,9 @@ public class ServerManager {
         SEOProblemCollection seoConfig = new SEOProblemCollection();
 
         MetaTagsUsage metaTagsUsage = new MetaTagsUsage();
-        metaTagsUsage.addComponent(new TitleLengthProblem());
+
+        TitleLengthProblem titleLengthProblem = new TitleLengthProblem();
+
         metaTagsUsage.addComponent(new DescriptionNotFoundProblem());
 
         seoConfig.addComponent(metaTagsUsage);
