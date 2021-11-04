@@ -1,22 +1,19 @@
 package com.company.seoSuggester.SEOProblemCollection;
 
 import com.company.seoSuggester.Component;
+import com.company.seoSuggester.Compound;
 import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class SEOProblemCollection extends Component {
+public class SEOProblemCollection extends Component implements Compound {
     /**
      * (Compound) class contains problems or another
      * problem collections grouped by interest tags
      */
 
-    private ArrayList<Component> childComponents = null;
-
-    public SEOProblemCollection() {
-        childComponents = new ArrayList<>();
-    }
+    private ArrayList<Component> childComponents = new ArrayList<>();
 
     public ArrayList<Component> getChildComponents() {
         return childComponents;

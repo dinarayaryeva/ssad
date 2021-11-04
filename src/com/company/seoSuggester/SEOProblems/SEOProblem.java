@@ -1,12 +1,13 @@
 package com.company.seoSuggester.SEOProblems;
 
 import com.company.seoSuggester.Component;
+import com.company.seoSuggester.Compound;
 import com.company.seoSuggester.SEOSuggestions.SEOSuggestion;
 import com.company.utils.htmlParser.Elements.Element;
 
 import java.util.ArrayList;
 
-public abstract class SEOProblem extends Component {
+public abstract class SEOProblem extends Component implements Compound {
     /**
      * Class (leaf) responsible for determining existence
      * of concrete problem in the document, and it's
@@ -16,7 +17,7 @@ public abstract class SEOProblem extends Component {
     /**
      * Array of suggestions on fixing the problem
      */
-    public ArrayList<SEOSuggestion> suggestions;
+    public ArrayList<Component> suggestions = new ArrayList<>();
 
     /**
      * Checks whether problem exists in the given array of elements
@@ -54,5 +55,21 @@ public abstract class SEOProblem extends Component {
     @Override
     public Integer getSeoWeight() {
         return 0;
+    }
+
+    @Override
+    public ArrayList<Component> getChildComponents() {
+        return suggestions;
+    }
+
+    @Override
+    public void setChildComponents(ArrayList<Component> children) {
+        suggestions = children;
+    }
+
+    @Override
+    public void addComponent(Component c) {
+        //TODO error handling in case when component is not suggestion
+        suggestions.add(c);
     }
 }

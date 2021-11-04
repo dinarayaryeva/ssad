@@ -28,4 +28,5 @@ public class DescriptionNotFoundProblem extends SEOProblem {
         return Boolean.FALSE;
     }
 
+
 }

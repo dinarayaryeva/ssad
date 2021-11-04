@@ -7,6 +7,8 @@ import com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage.MetaTagsUsage
 import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.seoSuggester.SEOProblems.DescriptionNotFoundProblem;
 import com.company.seoSuggester.SEOProblems.TitleLengthProblem;
+import com.company.seoSuggester.SEOSuggestions.DescriptionNotFoundSuggestion;
+import com.company.seoSuggester.SEOSuggestions.TitleLengthSuggestion;
 import com.company.utils.PlainDocument;
 
 import java.io.InputStream;
@@ -24,8 +26,15 @@ public class ServerManager {
         MetaTagsUsage metaTagsUsage = new MetaTagsUsage();
 
         TitleLengthProblem titleLengthProblem = new TitleLengthProblem();
+        TitleLengthSuggestion titleLengthSuggestion = new TitleLengthSuggestion();
+        titleLengthProblem.addComponent(titleLengthSuggestion);
 
-        metaTagsUsage.addComponent(new DescriptionNotFoundProblem());
+        DescriptionNotFoundProblem descriptionNotFoundProblem = new DescriptionNotFoundProblem();
+        DescriptionNotFoundSuggestion descriptionNotFoundSuggestion = new DescriptionNotFoundSuggestion();
+        descriptionNotFoundProblem.addComponent(descriptionNotFoundSuggestion);
+
+        metaTagsUsage.addComponent(titleLengthProblem);
+        metaTagsUsage.addComponent(descriptionNotFoundProblem);
 
         seoConfig.addComponent(metaTagsUsage);
 
