@@ -35,7 +35,6 @@ public class ServerManager {
 
         metaTagsUsage.addComponent(titleLengthProblem);
         metaTagsUsage.addComponent(descriptionNotFoundProblem);
-
         seoConfig.addComponent(metaTagsUsage);
 
         return seoConfig;

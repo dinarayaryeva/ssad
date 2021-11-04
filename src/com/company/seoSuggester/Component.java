@@ -18,7 +18,7 @@ public abstract class Component {
      * Array of tags component
      * is interested in
      */
-    public static ArrayList<Element> tags;
+    public ArrayList<Element> tags;
 
     /**
      *
