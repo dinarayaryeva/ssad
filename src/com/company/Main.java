@@ -30,9 +30,27 @@ public class Main {
         //Retrieving suggestions of document 1
         Component problems = seoSuggester.getProblems(document);
 
-        System.out.printf("Document rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
+        System.out.printf("Document 1 rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
 
-        System.out.println("Suggestion List:\n");
+        System.out.println("Document 1 Suggestion List:\n");
+        problems.printSeoSuggestions();
+
+        //Creating document 2
+        elements = new ArrayList<>();
+        elements.add(new Title("Title2"));
+        elements.add(new PageDescription("Description2"));
+
+        document = new Document(elements);
+
+        //Calculating SEO rank of document 2
+        docRank = seoRanker.calculateDocumentRank(document);
+
+        //Retrieving suggestions of document 2
+        problems = seoSuggester.getProblems(document);
+
+        System.out.printf("Document 2 rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
+
+        System.out.println("Document 2 suggestion List:\n");
         problems.printSeoSuggestions();
     }
 }
