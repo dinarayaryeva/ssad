@@ -26,6 +26,7 @@ public class SEOSuggester {
     SEOProblemCollection seoConfig;
 
     public SEOSuggester() {
+        serverConnection = new ServerManager();
         seoConfig = serverConnection.getSEOConfig();
     }
 
@@ -35,7 +36,7 @@ public class SEOSuggester {
      * @return SEOProblemCollection of all present
      * in document problems
      */
-    public Component getSEOProblems(Document document) {
+    public Component getProblems(Document document) {
 
         ArrayList<Element> elements = document.selectAll();
 
