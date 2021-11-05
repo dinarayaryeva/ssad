@@ -4,6 +4,8 @@ import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.Models.Index.WordIndex;
 import com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage.MetaTagsUsage;
+import com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage.PageDescriptionUsage;
+import com.company.seoSuggester.SEOProblemCollection.MetaTagsUsage.TitleUsage;
 import com.company.seoSuggester.SEOProblemCollection.SEOProblemCollection;
 import com.company.seoSuggester.SEOProblems.DescriptionNotFoundProblem;
 import com.company.seoSuggester.SEOProblems.TitleLengthProblem;
@@ -25,16 +27,20 @@ public class ServerManager {
 
         MetaTagsUsage metaTagsUsage = new MetaTagsUsage();
 
+        TitleUsage titleUsage = new TitleUsage();
         TitleLengthProblem titleLengthProblem = new TitleLengthProblem();
         TitleLengthSuggestion titleLengthSuggestion = new TitleLengthSuggestion();
         titleLengthProblem.addComponent(titleLengthSuggestion);
+        titleUsage.addComponent(titleLengthProblem);
 
+        PageDescriptionUsage descriptionUsage = new PageDescriptionUsage();
         DescriptionNotFoundProblem descriptionNotFoundProblem = new DescriptionNotFoundProblem();
         DescriptionNotFoundSuggestion descriptionNotFoundSuggestion = new DescriptionNotFoundSuggestion();
         descriptionNotFoundProblem.addComponent(descriptionNotFoundSuggestion);
+        descriptionUsage.addComponent(descriptionNotFoundProblem);
 
-        metaTagsUsage.addComponent(titleLengthProblem);
-        metaTagsUsage.addComponent(descriptionNotFoundProblem);
+        metaTagsUsage.addComponent(titleUsage);
+        metaTagsUsage.addComponent(descriptionUsage);
         seoConfig.addComponent(metaTagsUsage);
 
         return seoConfig;
