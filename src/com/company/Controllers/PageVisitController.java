@@ -1,4 +1,4 @@
-package com.company.searchEngine.Controllers;
+package com.company.Controllers;
 
 import com.company.httpMessages.SearchRequest.ExtendedPageVisitRequest;
 import com.company.httpMessages.SearchRequest.PageVisitRequest;
@@ -73,10 +73,10 @@ public class PageVisitController {
         /**
          * Gathering suggestions for the webpage.
          */
-        Component seoSuggestions = seoSuggester.getProblems(index.getDocData());
+        Component seoProblems = seoSuggester.getProblems(index.getDocData());
         ArrayList<String> keywordsSuggestions = keywordsSuggester.suggestKeywords(index.getDocData());
 
-        ExtendedPageVisitResponse response = new ExtendedPageVisitResponse(url, seoSuggestions, keywordsSuggestions);
+        ExtendedPageVisitResponse response = new ExtendedPageVisitResponse(url, seoProblems, keywordsSuggestions);
 
         // Interface fix needed (unify methods)
         pageVisitAnalytics.gatherVisitAnalytics(request, response, index);

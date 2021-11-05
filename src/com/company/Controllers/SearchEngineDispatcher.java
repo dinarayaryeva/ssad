@@ -1,4 +1,4 @@
-package com.company.searchEngine.Controllers;
+package com.company.Controllers;
 
 import com.company.httpMessages.SearchRequest.ImageSearchRequest;
 import com.company.httpMessages.SearchRequest.SearchRequest;
@@ -27,8 +27,6 @@ public class SearchEngineDispatcher {
      * it's first request according to resource
      * acquisition is initialization principle.
      * Later that worker can be reused to handle another requests.
-     * In that case abstract factory and factory method patterns
-     * would be applied correctly.
      */
     public ArrayList<StringSearchEngine> stringSearchEngines;
     public ArrayList<VoiceSearchEngine> voiceSearchEngines;
