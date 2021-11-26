@@ -8,7 +8,7 @@ import com.company.serverManager.ServerManager;
 
 public class PageVisitAnalytics {
 
-    ServerManager ServersConnection;
+    ServerManager serverManager;
 
     public void gatherVisitAnalytics(ExtendedPageVisitRequest request, ExtendedPageVisitResponse response, DocumentIndex index) {
         index.increaseVisitsCount();

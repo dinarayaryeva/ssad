@@ -36,6 +36,7 @@ public class SearchEngineDispatcher extends Handler {
         Searcher searcher = null;
         SearchAnalytics analytics = null;
 
+
         if (request instanceof ImageSearchRequest) {
             validator = new ImageSearchValidator();
             searcher = new ImageSearcher();

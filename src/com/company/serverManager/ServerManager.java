@@ -1,5 +1,7 @@
 package com.company.serverManager;
 
+import com.company.httpMessages.SearchRequest.SearchRequest;
+import com.company.httpMessages.SearchResponse.SearchResponse;
 import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.searchEngine.Models.Index.WordIndex;
@@ -106,5 +108,9 @@ public class ServerManager {
     public void updateLexicon() {
     }
 
+    // Working with analytics
+    public void gatherSearchAnalytics(SearchRequest request, SearchResponse response) {
+
+    }
 
 }

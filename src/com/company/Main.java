@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.Controllers.SearchEngineDispatcher;
+import com.company.httpMessages.SearchRequest.StringSearchRequest;
+import com.company.httpMessages.SearchResponse.StringSearchResponse;
 import com.company.seoSuggester.Component;
 import com.company.seoSuggester.SEORanker;
 import com.company.seoSuggester.SEOSuggester;
@@ -14,43 +17,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SEORanker seoRanker = new SEORanker();
-        SEOSuggester seoSuggester = new SEOSuggester();
+        SearchEngineDispatcher dispatcher = new SearchEngineDispatcher();
 
-        //Creating document 1
-        ArrayList<Element> elements = new ArrayList<>();
-        elements.add(new Title("Title11111111111111111111111111111111111"));
-        elements.add(new PageDescription(""));
+        StringSearchRequest stringSearchRequest = new StringSearchRequest("WTF");
+        StringSearchResponse stringSearchResponse = new StringSearchResponse();
+        dispatcher.handle(stringSearchRequest, stringSearchResponse);
 
-        Document document = new Document(elements);
+        stringSearchRequest = new StringSearchRequest("WTF");
+        stringSearchResponse = new StringSearchResponse();
+        dispatcher.handle(stringSearchRequest, stringSearchResponse);
 
-        //Calculating SEO rank of document 1
-        Integer docRank = seoRanker.calculateDocumentRank(document);
+        stringSearchRequest = new StringSearchRequest("WTF");
+        stringSearchResponse = new StringSearchResponse();
+        dispatcher.handle(stringSearchRequest, stringSearchResponse);
 
-        //Retrieving suggestions of document 1
-        Component problems = seoSuggester.getProblems(document);
-
-        System.out.printf("Document 1 rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
-
-        System.out.println("Document 1 Suggestion List:\n");
-        problems.printSeoSuggestions();
-
-        //Creating document 2
-        elements = new ArrayList<>();
-        elements.add(new Title("Title2"));
-        elements.add(new PageDescription("Description2"));
-
-        document = new Document(elements);
-
-        //Calculating SEO rank of document 2
-        docRank = seoRanker.calculateDocumentRank(document);
-
-        //Retrieving suggestions of document 2
-        problems = seoSuggester.getProblems(document);
-
-        System.out.printf("Document 2 rank: %d / %d\n\n", docRank, seoRanker.getMaxSEOScore());
-
-        System.out.println("Document 2 suggestion List:\n");
-        problems.printSeoSuggestions();
     }
 }

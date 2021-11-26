@@ -1,9 +1,7 @@
 package com.company.searchEngine.Searcher;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
-import com.company.httpMessages.SearchResponse.ImageSearchResponse;
 import com.company.httpMessages.SearchResponse.SearchResponse;
-import com.company.httpMessages.SearchResponse.StringSearchResponse;
 import com.company.searchEngine.Lexicon.LexiconManager;
 import com.company.searchEngine.Models.Index.DocumentIndex;
 import com.company.serverManager.ServerManager;
@@ -11,8 +9,13 @@ import com.company.serverManager.ServerManager;
 import java.util.ArrayList;
 
 public class StringSearcher extends Searcher {
+
     ServerManager serversConnection;
     LexiconManager lexiconManager;
+
+    public StringSearcher() {
+        serversConnection = new ServerManager();
+    }
 
     public ArrayList<String> fetchKeywords(String query) {
         return new ArrayList<String>();
@@ -25,7 +28,7 @@ public class StringSearcher extends Searcher {
     @Override
     public boolean handle(SearchRequest request, SearchResponse response) {
 
-        String query = request.query;
+        String query = request.value;
         Integer pagesCount = request.pagesCount;
 
         ArrayList<String> keywords = fetchKeywords(query);
@@ -33,7 +36,14 @@ public class StringSearcher extends Searcher {
         ArrayList<DocumentIndex> indexes = serversConnection.fetchMatchingIndexes(query);
         indexes = getRelevantPages(query, indexes, pagesCount);
 
-//        return new StringSearchResponse(indexes);
+        if (indexes.size() == 0) {
+            response.value = "No pages found.";
+            return false;
+        }
+
+        response.value = indexes.toString();
+        next.handle(request, response);
+
         return false;
     }
 }

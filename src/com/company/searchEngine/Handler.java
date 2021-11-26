@@ -5,7 +5,7 @@ import com.company.httpMessages.SearchResponse.SearchResponse;
 
 public abstract class Handler {
 
-    private Handler next;
+    protected Handler next;
 
     public void setNext(Handler next) {
         this.next = next;

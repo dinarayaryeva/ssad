@@ -7,7 +7,10 @@ import com.company.searchEngine.Lexicon.LexiconManager;
 import com.company.serverManager.ServerManager;
 
 public abstract class SearchAnalytics extends Handler {
+
+    ServerManager serverManager;
     LexiconManager lexiconManager;
+
     public abstract boolean handle(SearchRequest request, SearchResponse response);
 
 }

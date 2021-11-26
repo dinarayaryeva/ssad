@@ -15,6 +15,8 @@ public abstract class Validator extends Handler {
      */
     LexiconManager lexiconManager;
     ServerManager dataServerConnection;
+
+    protected abstract boolean isValid(SearchRequest request);
     public abstract boolean handle(SearchRequest request, SearchResponse response);
 
 
