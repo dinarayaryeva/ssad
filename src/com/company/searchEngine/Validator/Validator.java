@@ -1,10 +1,12 @@
 package com.company.searchEngine.Validator;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
+import com.company.httpMessages.SearchResponse.SearchResponse;
+import com.company.searchEngine.Handler;
 import com.company.searchEngine.Lexicon.LexiconManager;
 import com.company.serverManager.ServerManager;
 
-public abstract class Validator {
+public abstract class Validator extends Handler {
     /**
      * Checks for spelling mistakes and also if the
      * word used in query is unknown then gives suggestion
@@ -13,5 +15,7 @@ public abstract class Validator {
      */
     LexiconManager lexiconManager;
     ServerManager dataServerConnection;
-    public abstract SearchRequest validate(SearchRequest request);
+    public abstract boolean handle(SearchRequest request, SearchResponse response);
+
+
 }

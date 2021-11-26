@@ -23,16 +23,17 @@ public class StringSearcher extends Searcher {
     }
 
     @Override
-    public SearchResponse search(SearchRequest searchRequest) {
+    public boolean handle(SearchRequest request, SearchResponse response) {
 
-        String query = searchRequest.query;
-        Integer pagesCount = searchRequest.pagesCount;
+        String query = request.query;
+        Integer pagesCount = request.pagesCount;
 
         ArrayList<String> keywords = fetchKeywords(query);
 
         ArrayList<DocumentIndex> indexes = serversConnection.fetchMatchingIndexes(query);
         indexes = getRelevantPages(query, indexes, pagesCount);
 
-        return new StringSearchResponse(indexes);
+//        return new StringSearchResponse(indexes);
+        return false;
     }
 }

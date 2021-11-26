@@ -6,7 +6,7 @@ import com.company.httpMessages.SearchResponse.SearchResponse;
 public class StringSearchAnalytics extends SearchAnalytics {
 
     @Override
-    public void gatherSearchAnalytics(SearchRequest request, SearchRequest validatedRequest, SearchResponse response) {
-
+    public boolean handle(SearchRequest request, SearchResponse response) {
+        return false;
     }
 }

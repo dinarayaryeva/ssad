@@ -6,7 +6,7 @@ import com.company.httpMessages.SearchResponse.StringSearchResponse;
 
 public class VoiceSearcher extends Searcher {
     @Override
-    public SearchResponse search(SearchRequest searchRequest) {
+    public SearchResponse handle(SearchRequest searchRequest) {
         return new StringSearchResponse();
     }
 }

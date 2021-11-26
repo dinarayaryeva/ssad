@@ -1,10 +1,11 @@
 package com.company.searchEngine.Validator;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
+import com.company.httpMessages.SearchResponse.SearchResponse;
 
 public class VoiceSearchValidator extends Validator {
     @Override
-    public SearchRequest validate(SearchRequest request) {
-        return request;
+    public boolean handle(SearchRequest request, SearchResponse response) {
+        return false;
     }
 }
