@@ -8,6 +8,11 @@ import com.company.serverManager.ServerManager;
 
 public abstract class SearchAnalytics extends Handler {
 
+    /**
+     * Gathers analytics about performed search
+     * (in the simplified implementation just calls mock method)
+     */
+
     ServerManager serverManager;
     Lexicon lexicon;
 

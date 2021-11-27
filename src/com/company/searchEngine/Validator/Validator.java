@@ -7,11 +7,10 @@ import com.company.serverManager.ServerManager;
 
 public abstract class Validator extends Handler {
     /**
-     * Checks for spelling mistakes and also if the
-     * word used in query is unknown then gives suggestion
-     * regarding related words. In simplified implementation
-     * only first step is performed.
+     *  Checks whether search request asset
+     *  (search string / voice record / image) has correct format
      */
+
     ServerManager dataServerConnection;
 
     protected abstract boolean isValid(SearchRequest request);

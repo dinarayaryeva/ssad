@@ -24,10 +24,8 @@ import com.company.searchEngine.Validator.VoiceSearchValidator;
 
 public class SearchEngineDispatcher extends Handler {
     /**
-     * Class responsible for reading handle
-     * requests and providing corresponding
-     * handle engine implementation worker to
-     * handle them.
+     * provides implementation of Validator,
+     * Searcher and Analytics depend on search request type
      */
 
     public void handle(SearchRequest request, SearchResponse response) {
