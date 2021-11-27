@@ -23,7 +23,9 @@ import com.company.utils.htmlParser.Elements.Title;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ServerManager {
     /**
@@ -176,8 +178,18 @@ public class ServerManager {
         ArrayList<Integer> wordIds = (ArrayList<Integer>) keywords.stream()
                 .map(x -> Lexicon.getWordId(x))
                 .collect(Collectors.toList());
-        wordIndices.stream().filter(x -> wordIds.contains(x));
-        return new ArrayList<DocumentIndex>();
+
+        ArrayList<Integer> docIds = (ArrayList<Integer>) wordIndices.stream()
+                .filter(wordInd -> wordIds.contains(wordInd.getWordId()))
+                .map(wordInd -> wordInd.getDocIds())
+                .flatMap(docInds -> docInds.stream())
+                .distinct()
+                .collect(Collectors.toList());
+
+        ArrayList<DocumentIndex> docInds = (ArrayList<DocumentIndex>) docIndices.stream()
+                .filter(ind -> docIds.contains(ind.getDocId()))
+                .collect(Collectors.toList());
+        return docInds;
     }
 
     public void storeUrlsOnUrlServer(String url) {

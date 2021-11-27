@@ -16,5 +16,7 @@ public class WordIndex extends InvertedIndex {
     public Integer getWordId() {
         return wordId;
     }
-    public ArrayList<Integer> getDocIds;
+    public ArrayList<Integer> getDocIds() {
+        return docIds;
+    };
 }

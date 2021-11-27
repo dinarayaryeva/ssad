@@ -23,8 +23,10 @@ public class StringSearchValidator extends Validator {
     @Override
     public boolean handle(SearchRequest request, SearchResponse response) {
 
+        super.handle(request, response);
+
         if (!isValid(request)) {
-            response.value = "Incorrect search request!";
+            response.error = "Incorrect search request!";
             return false;
         }
 

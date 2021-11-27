@@ -24,7 +24,7 @@ public class DocumentIndex extends ForwardIndex {
         this.docData = docData;
     }
 
-    public int getDocId() {
+    public Integer getDocId() {
         return docId;
     }
 

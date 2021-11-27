@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class Lexicon {
     /**
      * List of words together
-     * with their IDS used by searcher.
+     * with their IDS. Used for searching.
      */
     private static HashMap<String, Integer> instance;
     private static ServerManager serverConnection;

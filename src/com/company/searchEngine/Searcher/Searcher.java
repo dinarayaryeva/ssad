@@ -16,6 +16,9 @@ public abstract class Searcher extends Handler {
      * cache checking, relevance checking and etc.
      */
     ServerManager dataServerConnection;
-    public abstract boolean handle(SearchRequest request, SearchResponse response);
+    public boolean handle(SearchRequest request, SearchResponse response) {
+        super.handle(request, response);
+        return false;
+    }
 
 }

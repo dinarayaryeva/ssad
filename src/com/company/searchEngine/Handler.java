@@ -10,5 +10,9 @@ public abstract class Handler {
     public void setNext(Handler next) {
         this.next = next;
     }
-    public abstract boolean handle(SearchRequest req, SearchResponse res);
+
+    public boolean handle(SearchRequest req, SearchResponse res) {
+        System.out.printf("%s is handling request\n", this.getClass().getSimpleName());
+        return false;
+    }
 }

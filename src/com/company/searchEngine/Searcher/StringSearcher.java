@@ -49,10 +49,14 @@ public class StringSearcher extends Searcher {
     @Override
     public boolean handle(SearchRequest request, SearchResponse response) {
 
+        super.handle(request, response);
+
         //Search string
         String query = request.value;
 
-        //Number of pages to return
+        System.out.printf("Searching pages for query: %s\n", query);
+
+        //Number of pages to return, isn't configured yet
         Integer pagesCount = request.pagesCount;
 
         ArrayList<String> keywords = fetchKeywords(query);
