@@ -1,14 +1,7 @@
 package com.company.searchEngine.Sorter;
 
-import com.company.searchEngine.Indexer.Indexer;
 import com.company.searchEngine.Lexicon.Lexicon;
-import com.company.searchEngine.Lexicon.LexiconManager;
-import com.company.searchEngine.Models.Index.DocumentIndex;
-
-import com.company.searchEngine.Models.Index.WordIndex;
 import com.company.serverManager.ServerManager;
-
-import java.util.ArrayList;
 
 public abstract class Sorter {
     /**
@@ -19,7 +12,7 @@ public abstract class Sorter {
      * stores them in server
      */
     ServerManager dataServerConnection;
-    LexiconManager lexiconManager;
+    Lexicon lexicon;
 
     public abstract void makeInverterIndex();
     public abstract void updateInverterIndex();

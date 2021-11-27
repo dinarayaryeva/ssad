@@ -4,7 +4,8 @@ import com.company.httpMessages.SearchRequest.SearchRequest;
 
 public class VoiceSearchValidator extends Validator {
     @Override
-    public SearchRequest validate(SearchRequest request) {
-        return request;
+    protected boolean isValid(SearchRequest request) {
+        //there should be some voice validation algorithm
+        return false;
     }
 }

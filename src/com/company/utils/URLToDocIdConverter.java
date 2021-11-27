@@ -2,7 +2,7 @@ package com.company.utils;
 
 import com.company.serverManager.ServerManager;
 
-public class URLToDocidConverter {
+public class URLToDocIdConverter {
 
     public ServerManager dataServerConnection;
 

@@ -2,11 +2,12 @@ package com.company.searchEngine.Searcher;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
 import com.company.httpMessages.SearchResponse.SearchResponse;
-import com.company.httpMessages.SearchResponse.StringSearchResponse;
 
 public class VoiceSearcher extends Searcher {
     @Override
-    public SearchResponse search(SearchRequest searchRequest) {
-        return new StringSearchResponse();
+    public void handle(SearchRequest request, SearchResponse response) {
+        super.handle(request, response);
+        //specific voice search algorithm
+        next.handle(request, response);
     }
 }

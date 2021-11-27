@@ -6,7 +6,7 @@ import com.company.httpMessages.SearchResponse.SearchResponse;
 public class VoiceSearchAnalytics extends SearchAnalytics {
 
     @Override
-    public void gatherSearchAnalytics(SearchRequest request, SearchRequest validatedRequest, SearchResponse response) {
-
+    public void handle(SearchRequest request, SearchResponse response) {
+        serverManager.gatherSearchAnalytics(request, response);
     }
 }

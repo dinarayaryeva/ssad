@@ -5,8 +5,14 @@ import com.company.httpMessages.SearchResponse.SearchResponse;
 
 public class StringSearchAnalytics extends SearchAnalytics {
 
-    @Override
-    public void gatherSearchAnalytics(SearchRequest request, SearchRequest validatedRequest, SearchResponse response) {
+    public StringSearchAnalytics() {
+        super();
+    }
 
+    @Override
+    public void handle(SearchRequest request, SearchResponse response) {
+        super.handle(request, response);
+        System.out.printf("Gatherting web-search analytics...\n");
+        serverManager.gatherSearchAnalytics(request, response);
     }
 }

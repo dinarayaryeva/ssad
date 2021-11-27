@@ -4,71 +4,63 @@ import com.company.httpMessages.SearchRequest.ImageSearchRequest;
 import com.company.httpMessages.SearchRequest.SearchRequest;
 import com.company.httpMessages.SearchRequest.StringSearchRequest;
 import com.company.httpMessages.SearchRequest.VoiceSearchRequest;
+import com.company.httpMessages.SearchResponse.ImageSearchResponse;
 import com.company.httpMessages.SearchResponse.SearchResponse;
-import com.company.searchEngine.ImageSearchEngine;
-import com.company.searchEngine.StringSearchEngine;
-import com.company.searchEngine.VoiceSearchEngine;
+import com.company.httpMessages.SearchResponse.StringSearchResponse;
+import com.company.httpMessages.SearchResponse.VoiceSearchResponse;
+import com.company.searchEngine.Analytics.ImageSearchAnalytics;
+import com.company.searchEngine.Analytics.SearchAnalytics;
+import com.company.searchEngine.Analytics.StringSearchAnalytics;
+import com.company.searchEngine.Analytics.VoiceSearchAnalytics;
+import com.company.searchEngine.Handler;
+import com.company.searchEngine.Searcher.ImageSearcher;
+import com.company.searchEngine.Searcher.Searcher;
+import com.company.searchEngine.Searcher.StringSearcher;
+import com.company.searchEngine.Searcher.VoiceSearcher;
+import com.company.searchEngine.Validator.ImageSearchValidator;
+import com.company.searchEngine.Validator.StringSearchValidator;
+import com.company.searchEngine.Validator.Validator;
+import com.company.searchEngine.Validator.VoiceSearchValidator;
 
-import java.util.ArrayList;
-
-public class SearchEngineDispatcher {
+public class SearchEngineDispatcher extends Handler {
     /**
-     * Class responsible for reading search
+     * Class responsible for reading handle
      * requests and providing corresponding
-     * search engine implementation worker to
+     * handle engine implementation worker to
      * handle them.
-     * Web-server works in multithreading
-     * environment and according to the assignment
-     * Q&A document we are allowed to simplify that part,
-     * so management
-     * of search engine instances engines is omitted.
-     * In complete implementation creation of search engine
-     * worker can be combined with processing
-     * it's first request according to resource
-     * acquisition is initialization principle.
-     * Later that worker can be reused to handle another requests.
      */
-    public ArrayList<StringSearchEngine> stringSearchEngines;
-    public ArrayList<VoiceSearchEngine> voiceSearchEngines;
-    public ArrayList<ImageSearchEngine> imageSearchEngines;
 
-    public SearchEngineDispatcher() {
-        imageSearchEngines.add(createImagineSearchEngine());
-        voiceSearchEngines.add(createVoiceSearchEngine());
-        stringSearchEngines.add(createStringSearchEngine());
-    }
+    public void handle(SearchRequest request, SearchResponse response) {
 
-    public StringSearchEngine createStringSearchEngine() {
-        return new StringSearchEngine();
-    }
-    public VoiceSearchEngine createVoiceSearchEngine() {
-        return new VoiceSearchEngine();
-    }
-    public ImageSearchEngine createImagineSearchEngine() {
-        return new ImageSearchEngine();
-    }
+        //Create objects to handle the request
+        Validator validator = null;
+        Searcher searcher = null;
+        SearchAnalytics analytics = null;
 
-    public StringSearchEngine createStringSearchEngine(StringSearchRequest r) {
-        return new StringSearchEngine(r);
-    }
-    public VoiceSearchEngine createVoiceSearchEngine(VoiceSearchRequest r) {
-        return new VoiceSearchEngine(r);
-    }
-    public ImageSearchEngine createImagineSearchEngine(ImageSearchRequest r) {
-        return new ImageSearchEngine(r);
-    }
-
-    public SearchResponse dispatchSearchRequest(SearchRequest request) {
-        SearchResponse response = null;
+        //Initialize handlers in chain depending on the request type
         if (request instanceof ImageSearchRequest) {
-            response = imageSearchEngines.get(0).processSearchRequest(request);
+            validator = new ImageSearchValidator();
+            searcher = new ImageSearcher();
+            analytics = new ImageSearchAnalytics();
+
+
+        } else if (request instanceof StringSearchRequest) {
+            validator = new StringSearchValidator();
+            searcher = new StringSearcher();
+            analytics = new StringSearchAnalytics();
+        } else if (request instanceof VoiceSearchRequest) {
+            validator = new VoiceSearchValidator();
+            searcher = new VoiceSearcher();
+            analytics = new VoiceSearchAnalytics();
         }
-        else if (request instanceof StringSearchRequest) {
-            response = stringSearchEngines.get(0).processSearchRequest(request);
-        }
-        else if (request instanceof VoiceSearchRequest) {
-            response = voiceSearchEngines.get(0).processSearchRequest(request);
-        }
-        return response;
+
+        //Set the order for chain
+        validator.setNext(searcher);
+        searcher.setNext(searcher);
+        searcher.setNext(analytics);
+
+        //start processing
+        validator.handle(request, response);
+
     }
 }

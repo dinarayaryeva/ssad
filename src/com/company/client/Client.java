@@ -1,10 +1,7 @@
 package com.company.client;
 
-import com.company.httpMessages.SearchRequest.ExtendedPageVisitRequest;
-import com.company.httpMessages.SearchRequest.PageVisitRequest;
-import com.company.httpMessages.SearchRequest.SearchRequest;
-import com.company.httpMessages.SearchResponse.ExtendedPageVisitResponse;
-import com.company.httpMessages.SearchResponse.SearchResponse;
+import com.company.httpMessages.SearchRequest.*;
+import com.company.httpMessages.SearchResponse.*;
 import com.company.Controllers.PageVisitController;
 import com.company.Controllers.SearchEngineDispatcher;
 
@@ -18,11 +15,26 @@ public class Client {
     PageVisitController pageVisitController;
 
     public Client() {
+
         searchEngineDispatcher = new SearchEngineDispatcher();
     }
 
-    public SearchResponse performSearch(SearchRequest request) {
-        return searchEngineDispatcher.dispatchSearchRequest(request);
+    public SearchResponse performStringSearch(StringSearchRequest request) {
+        StringSearchResponse response = new StringSearchResponse();
+        searchEngineDispatcher.handle(request, response);
+        return response;
+    }
+
+    public SearchResponse performVoiceSearch(VoiceSearchRequest request) {
+        VoiceSearchResponse response = new VoiceSearchResponse();
+        searchEngineDispatcher.handle(request, response);
+        return response;
+    }
+
+    public SearchResponse performImageSearch(ImageSearchRequest request) {
+        ImageSearchResponse response = new ImageSearchResponse();
+        searchEngineDispatcher.handle(request, response);
+        return response;
     }
 
     //Client goes to the original website

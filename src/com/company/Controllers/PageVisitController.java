@@ -10,7 +10,7 @@ import com.company.seoSuggester.Component;
 import com.company.seoSuggester.KeywordsSuggester;
 import com.company.seoSuggester.SEOSuggester;
 import com.company.serverManager.ServerManager;
-import com.company.utils.URLToDocidConverter;
+import com.company.utils.URLToDocIdConverter;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ public class PageVisitController {
     ServerManager dataServerConnection;
     PageVisitAnalytics pageVisitAnalytics;
     PageFetcher pageFetcher;
-    URLToDocidConverter urlToDocidConverter;
+    URLToDocIdConverter urlToDocidConverter;
     SEOSuggester seoSuggester;
     KeywordsSuggester keywordsSuggester;
 

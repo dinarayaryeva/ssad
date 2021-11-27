@@ -20,7 +20,7 @@ public class DescriptionNotFoundProblem extends SEOProblem {
                 "Page description was not found on the page.\n"                     +
                         "The meta description is an HTML attribute that provides\n" +
                         "a brief summary of a web page. Search engines \n"          +
-                        "often display the meta description in search results,\n"   +
+                        "often display the meta description in handle results,\n"   +
                         "which can influence click-through rates.";
         tags = new ArrayList<>();
         tags.add(new PageDescription());

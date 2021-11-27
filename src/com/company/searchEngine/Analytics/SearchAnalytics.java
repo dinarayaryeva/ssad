@@ -2,13 +2,21 @@ package com.company.searchEngine.Analytics;
 
 import com.company.httpMessages.SearchRequest.SearchRequest;
 import com.company.httpMessages.SearchResponse.SearchResponse;
-import com.company.searchEngine.Lexicon.LexiconManager;
+import com.company.searchEngine.Handler;
+import com.company.searchEngine.Lexicon.Lexicon;
 import com.company.serverManager.ServerManager;
 
-public abstract class SearchAnalytics extends Analytics {
-    LexiconManager lexiconManager;
-    public abstract void gatherSearchAnalytics(SearchRequest request, SearchRequest validatedRequest, SearchResponse response);
+public abstract class SearchAnalytics extends Handler {
 
+    ServerManager serverManager;
+    Lexicon lexicon;
 
+    SearchAnalytics() {
+        serverManager = new ServerManager();
+    }
+
+    public void handle(SearchRequest request, SearchResponse response) {
+        super.handle(request, response);
+    }
 
 }
