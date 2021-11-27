@@ -5,6 +5,8 @@ import com.company.utils.htmlParser.Document;
 
 public class DocumentIndex extends ForwardIndex {
 
+    //List of words in the document (HitList) is omitted
+
     private int plainDocId;
     private int docId;
     private int docStatus;
