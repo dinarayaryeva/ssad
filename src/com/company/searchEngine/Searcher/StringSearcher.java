@@ -64,7 +64,7 @@ public class StringSearcher extends Searcher {
         ArrayList<String> keywords = fetchKeywords(query);
 
         //Downloading all documents containing keywords
-        ArrayList<DocumentIndex> indexes = serversConnection.fetchMatchingIndexes(keywords);
+        ArrayList<DocumentIndex> indexes = serversConnection.fetchMatchingIndices(keywords);
 
         //Filtering pages by relevance
         indexes = getRelevantPages(keywords, indexes, pagesCount);

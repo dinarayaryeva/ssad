@@ -54,7 +54,7 @@ public class ServerManager {
         doc1ELements.add(doc1Paragraph2);
 
         Document doc1 = new Document(doc1ELements);
-        DocumentIndex doc1Index = new DocumentIndex(doc1, "http://document1.ext");
+        DocumentIndex doc1Index = new DocumentIndex(doc1, "http://document1f.ext");
 
         Element doc2Title = new Title("Document2 title");
         Element doc2Header1_1 = new Header1("Document2 header1");
@@ -168,16 +168,24 @@ public class ServerManager {
         return "";
     }
 
-    public ArrayList<DocumentIndex> fetchMatchingIndexes(String query) {
+    public ArrayList<DocumentIndex> fetchMatchingIndices(String query) {
 
         return new ArrayList<DocumentIndex>();
     }
 
-    public ArrayList<DocumentIndex> fetchMatchingIndexes(ArrayList<String> keywords) {
+    /**
+     * Obtain documents that contain specified keywords
+     * @param keywords
+     * @return
+     */
+    public ArrayList<DocumentIndex> fetchMatchingIndices(ArrayList<String> keywords) {
+
+        //Convert each keyword to it's id (ids are stores in the lexicon)
         ArrayList<Integer> wordIds = (ArrayList<Integer>) keywords.stream()
                 .map(x -> Lexicon.getWordId(x))
                 .collect(Collectors.toList());
 
+        //Find ids of documents containing words with specific ids
         ArrayList<Integer> docIds = (ArrayList<Integer>) wordIndices.stream()
                 .filter(wordInd -> wordIds.contains(wordInd.getWordId()))
                 .map(wordInd -> wordInd.getDocIds())
@@ -185,6 +193,7 @@ public class ServerManager {
                 .distinct()
                 .collect(Collectors.toList());
 
+        //Obtain document indices by their ids
         ArrayList<DocumentIndex> docInds = (ArrayList<DocumentIndex>) docIndices.stream()
                 .filter(ind -> docIds.contains(ind.getDocId()))
                 .collect(Collectors.toList());
