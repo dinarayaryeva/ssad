@@ -11,6 +11,10 @@ public abstract class SearchAnalytics extends Handler {
     ServerManager serverManager;
     Lexicon lexicon;
 
+    SearchAnalytics() {
+        serverManager = new ServerManager();
+    }
+
     public boolean handle(SearchRequest request, SearchResponse response) {
         super.handle(request, response);
         return false;

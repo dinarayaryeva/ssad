@@ -55,7 +55,7 @@ public class ServerManager {
         doc1ELements.add(doc1Paragraph2);
 
         Document doc1 = new Document(doc1ELements);
-        DocumentIndex doc1Index = new DocumentIndex(doc1);
+        DocumentIndex doc1Index = new DocumentIndex(doc1, "http://document1.ext");
 
         Element doc2Title = new Title("Document2 title");
         Element doc2Header1_1 = new Header1("Document2 header1");
@@ -72,7 +72,7 @@ public class ServerManager {
         doc2ELements.add(doc1Paragraph2);
 
         Document doc2 = new Document(doc1ELements);
-        DocumentIndex doc2Index = new DocumentIndex(doc2);
+        DocumentIndex doc2Index = new DocumentIndex(doc2, "http://document2.ext");
 
 
         docIndices = new ArrayList<>();
@@ -93,8 +93,8 @@ public class ServerManager {
         //Word index for word "paragraph1"
         ArrayList<Integer> word2DocIds = new ArrayList<>();
         //Word with id 2 appears in documents with id 1 and 2
-        word2DocIds.add(1);
-        word2DocIds.add(2);
+        word2DocIds.add("http://document1.ext".hashCode());
+        word2DocIds.add("http://document2.ext".hashCode());
         WordIndex word2Index = new WordIndex(2, word2DocIds);
 
         //Word index for word "document2"

@@ -17,7 +17,7 @@ public class PageFetcher {
     public DocumentIndex fetchFromLiveURL(String url) {
 
         PlainDocument doc = crawler.downloadDoc(url);
-        DocumentIndex index = indexer.makeDocumentIndex(doc);
+        DocumentIndex index = indexer.makeDocumentIndex(doc, url);
 
         extractor.loadUrlToServer(url);
         dataServerConnection.storeIndex(index);

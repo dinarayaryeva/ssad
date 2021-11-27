@@ -15,6 +15,15 @@ import java.util.ArrayList;
 
 public class Main {
 
+    public static void printSearchResults(StringSearchResponse response) {
+        if (response.error == null) {
+            System.out.printf("Search results:\n%s\n", response.value);
+        }
+        else {
+            System.out.printf("%s\n", response.error);
+        }
+    }
+
     public static void main(String[] args) {
 
         SearchEngineDispatcher dispatcher = new SearchEngineDispatcher();
@@ -24,29 +33,19 @@ public class Main {
                 "LONGLONGLONGLONGLONGLONGLOLONGNGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
         StringSearchResponse stringSearchResponse = new StringSearchResponse();
         dispatcher.handle(stringSearchRequest, stringSearchResponse);
-        //Result of the chain handling
-        String ret = (stringSearchResponse.error == null)
-                ? stringSearchResponse.value : stringSearchResponse.error;
-
-        System.out.printf("%s\n", ret);
+        printSearchResults(stringSearchResponse);
 
 
         System.out.printf("\nProcessing search request 2\n");
         stringSearchRequest = new StringSearchRequest("hmmm");
         stringSearchResponse = new StringSearchResponse();
         dispatcher.handle(stringSearchRequest, stringSearchResponse);
-        //Result of the chain handling
-        ret = (stringSearchResponse.error == null)
-                ? stringSearchResponse.value : stringSearchResponse.error;
-
-        System.out.printf("%s\n", ret);
+        printSearchResults(stringSearchResponse);
 
         System.out.printf("\nProcessing search request 3\n");
         stringSearchRequest = new StringSearchRequest("paragraph1");
         stringSearchResponse = new StringSearchResponse();
         dispatcher.handle(stringSearchRequest, stringSearchResponse);
-        ret = (stringSearchResponse.error == null)
-                ? stringSearchResponse.value : stringSearchResponse.error;
-        System.out.printf("%s\n", ret);
+        printSearchResults(stringSearchResponse);
     }
 }

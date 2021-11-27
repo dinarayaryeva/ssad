@@ -26,10 +26,10 @@ public class Indexer {
         htmlParser = new HTMLParser();
     }
 
-    public DocumentIndex makeDocumentIndex(PlainDocument plainDoc) {
+    public DocumentIndex makeDocumentIndex(PlainDocument plainDoc, String url) {
 
         Document doc = htmlParser.parse(plainDoc);
-        DocumentIndex index = new DocumentIndex(doc);
+        DocumentIndex index = new DocumentIndex(doc, url);
 
         int seoRank = seoRanker.calculateDocumentRank(index.getDocData());
         index.setSeoRank(seoRank);

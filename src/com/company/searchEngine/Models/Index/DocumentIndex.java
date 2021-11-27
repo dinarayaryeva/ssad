@@ -13,6 +13,7 @@ public class DocumentIndex extends ForwardIndex {
     private String hash;
     private int visits;
     private int seoRank;
+    private String url;
 
     /**
      * Separation between HTML document and index
@@ -24,12 +25,18 @@ public class DocumentIndex extends ForwardIndex {
         this.docData = docData;
     }
 
-    public Integer getDocId() {
-        return docId;
+    public DocumentIndex(Document docData, String url) {
+        this.docData = docData;
+        this.url = url;
+        this.docId = url.hashCode();
     }
 
     public static DocumentIndex getIndexById(int docId) {
         return null;
+    }
+
+    public Integer getDocId() {
+        return docId;
     }
 
     public int getSeoRank() {
@@ -50,4 +57,10 @@ public class DocumentIndex extends ForwardIndex {
         return docData;
     }
 
+    public String getUrl() { return url; }
+
+    @Override
+    public String toString() {
+        return url;
+    }
 }

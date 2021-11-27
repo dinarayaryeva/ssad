@@ -5,6 +5,10 @@ import com.company.httpMessages.SearchResponse.SearchResponse;
 
 public class StringSearchAnalytics extends SearchAnalytics {
 
+    public StringSearchAnalytics() {
+        super();
+    }
+
     @Override
     public boolean handle(SearchRequest request, SearchResponse response) {
         super.handle(request, response);
